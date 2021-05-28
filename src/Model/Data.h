@@ -53,7 +53,7 @@ public:
 
     int calculerIndiceAtmo(Coordonnees coord, int rayon, Utilisateur * user, Date date, int nbJour );
 
-    int calculerIndiceAtmo(Sensor sensor, Data data, Date date, int nbJour );
+    int calculerIndiceAtmo(Sensor sensor, Date date, int nbJour );
 
 //------------------------------------------------- Surcharge d'opérateurs
     Data & operator = ( const Data & unData );

@@ -3,14 +3,15 @@ CXXFLAGS=-ansi -pedantic -Wall -std=c++11
 LDFLAGS=
 EXEC=main
 SRC=$(wildcard *.cpp)
-SRCS= $(wildcard Controller/*.cpp) $(wildcard Vues/*.cpp) $(wildcard Model/*.cpp)
-OBJS=$(SRC:.cpp=.o)
+SRCS= $(wildcard Controller/*.cpp) $(wildcard Vues/*.cpp) $(wildcard Model/*.cpp) $(wildcard *.cpp)
+OBJS=$(SRCS:.cpp=.o)
 SUBDIRS = Controller Model Vues
 
 all : $(EXEC)
-	for i in $(SUBDIRS); do (cd $$i; $(MAKE) all); done
+	
 
 main : $(OBJS)
+	for i in $(SUBDIRS); do (cd $$i; $(MAKE) all); done
 	$(CXX) -o $@ ${OBJS} $(LDFLAGS)
 
 %.o : %.cpp

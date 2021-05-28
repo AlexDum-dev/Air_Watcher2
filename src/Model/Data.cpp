@@ -36,6 +36,11 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+vector<Sensor> Data::getSensors()
+{
+    return sensors;
+}
+
 bool Data::initSensors(string nomFichier)
 {
     bool res = true;
