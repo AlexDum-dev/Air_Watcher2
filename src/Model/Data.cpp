@@ -49,8 +49,10 @@ bool Data::initSensors(string nomFichier)
 
     if (!file)
     {
+       
         return false;
     }
+    
 
     while(!file.eof())
     {
@@ -63,7 +65,9 @@ bool Data::initSensors(string nomFichier)
         
         Coordonnees coord(stof(lat),stof(longi));
         Sensor unSensor(id,coord);
+        cout << unSensor.getId() << endl;
         sensors.push_back(unSensor);
+        file.get();
     }
 
     return res;

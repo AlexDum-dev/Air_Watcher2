@@ -17,7 +17,8 @@ main : $(OBJS)
 %.o : %.cpp
 	$(CXX) -c $< $(CXXFLAGS)
 	
-debug : $(OBJ)
+debug : $(OBJS)
+	for i in $(SUBDIRS); do (cd $$i; $(MAKE) all); done
 	$(CXX) -g3 -o $@ $^ $(LDFLAGS)
 
 clean : 
