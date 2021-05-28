@@ -109,6 +109,7 @@ bool Data::initCleaners(string nomFichier)
         Coordonnees coord(stof(lat),stof(longi));
         Cleaner unCleaner(id,coord,dateStart,dateStop);
         cleaners.push_back(unCleaner);
+        file.get();
     }
 
     return res;
@@ -158,6 +159,7 @@ bool Data::initProviders(string nomFichier)
         Provider unProvider(id,mdp,adresseMail);
         unProvider.SetCleaners(c);
         providers.push_back(unProvider);
+        file.get();
     }
 
     return res;
@@ -180,7 +182,7 @@ bool Data::initUsers(string nomFichier)
 
 
 
-bool Data::initMeasurements(string nomFichier)
+bool Data::initMeasurements(string nomFichier) // A FAIRE !!!
 {
     bool res;
     return res;
