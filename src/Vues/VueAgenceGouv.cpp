@@ -1,5 +1,4 @@
 #include "VueAgenceGouv.h"
-#include "Coordonnees.h"
 
 VueAgenceGouv:: VueAgenceGouv ()
 {
