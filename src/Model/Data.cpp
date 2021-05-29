@@ -1,13 +1,3 @@
-/*************************************************************************
-                           Data  -  description
-                             -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
-*************************************************************************/
-
-//---------- Réalisation de la classe <Data> (fichier Data.cpp) ------------
-
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
@@ -25,22 +15,30 @@ using namespace std;
 #include "Utilisateur.h"
 #include "Provider.h"
 
-//------------------------------------------------------------- Constantes
-
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+
 // type Xxx::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
 
+//Méthode qui nous permet de trier par le deuxième élément d'une pair
+bool sortbysec(const pair<Sensor,int> &a, const pair<Sensor,int> &b)
+{
+    return (a.second < b.second);
+}
+
+//getter du vector de sensors
 vector<Sensor> Data::getSensors()
 {
     return sensors;
 }
 
+
+//Initialiser les Sensors(à partir d'un fichier)
 bool Data::initSensors(string nomFichier)
 {
     bool res = true;
@@ -73,6 +71,7 @@ bool Data::initSensors(string nomFichier)
     return res;
 }
 
+//Initialiser les Cleaners(à partir d'un fichier)
 bool Data::initCleaners(string nomFichier)
 {
     bool res = true;
@@ -115,6 +114,8 @@ bool Data::initCleaners(string nomFichier)
     return res;
 }
 
+
+//initaliser les Providers (à partir d'un fichier')
 bool Data::initProviders(string nomFichier)
 {
     bool res = true;
@@ -165,6 +166,8 @@ bool Data::initProviders(string nomFichier)
     return res;
 }
 
+
+//initialiser un utilisateur (à partir d'un fichier)
 bool Data::initUsers(string nomFichier)
 {
     bool res;
@@ -178,10 +181,7 @@ bool Data::initUsers(string nomFichier)
 }
 
 
-
-
-
-
+//initialiser les mesures des sensors ( à partir d'un fichier)
 bool Data::initMeasurements(string nomFichier) // A FAIRE !!!
 {
     bool res;
@@ -189,7 +189,7 @@ bool Data::initMeasurements(string nomFichier) // A FAIRE !!!
 }
 
 
-
+// initialiser Attributes (à partir d'un fichier)
 bool Data::initAttributes(string nomFichier)
 {
     bool res;
@@ -379,28 +379,24 @@ int Data:: calculerIndiceAtmo(Sensor sensor, Data data, Date date, int nbJour )
 
 //------------------------------------------------- Surcharge d'opérateurs
 Data & Data::operator = ( const Data & Data )
-// Algorithme :
-//
 {
-} //----- Fin de operator =
+}
 
 
+//-------------------------------------------- Constructeurs - destructeur
 
+//Constructeur
 Data::Data ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Data>" << endl;
 #endif
-} //----- Fin de Data
+}
 
-
+//Destructeur
 Data::~Data()
 {
     
 }
-//------------------------------------------------------------------ PRIVE
 
-//----------------------------------------------------- Méthodes protégées
 

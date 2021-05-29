@@ -7,12 +7,11 @@
 using namespace std;
 #include "Coordonnees.h"
 #include "Date.h"
-//------------------------------------------------------------- Constantes
 
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-//  
+// Rôle de la classe <Sensor>
+// Créer l'instance Sensor et gérer les méthodes
 //
 //------------------------------------------------------------------------
 
@@ -22,30 +21,26 @@ class Sensor
 
 public:
 
-   
+//----------------------------------------------------- Méthodes publiques
 
- 
-//-------------------------------------------- Constructeurs - destructeur
-
-    Sensor(string unId, Coordonnees uneCoord);
-
+    //getter de coordonnees
     Coordonnees getCoordonnees();
 
+    //getter d'Id
     string getId();
 
-    ~Sensor ( );
-    // Mode d'emploi :
-    // Détruit l'objet Data.
-    // Contrat :
-    //
 
-//------------------------------------------------------------------ PRIVE
+//-------------------------------------------- Constructeurs - destructeur
+
+    //Constructeur
+    Sensor(string unId, Coordonnees uneCoord);
+
+    //Destructeur
+    ~Sensor ( );
+
+//-------------------------------------------------------------- PROTECTED
 
 protected:
-//----------------------------------------------------- Méthodes protégées
-
-
-    
 
 //----------------------------------------------------- Attributs protégés
 
@@ -53,6 +48,5 @@ protected:
     Coordonnees coord;
 };
 
-//-------------------------------- Autres définitions dépendantes de <Data>
 
-#endif // SENSOR_H
+#endif 

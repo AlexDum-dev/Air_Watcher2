@@ -1,8 +1,3 @@
-/*************************************************************************
-                           IndPriv  -  description
-*************************************************************************/
-
-//---------- Interface de la classe <IndPriv> (fichier IndPriv.h) ----
 #if !defined(INDPRIV_H)
 #define INDPRIV_H
 
@@ -12,7 +7,7 @@
 #include "Sensor.h"
 //------------------------------------------------------------------------
 // Rôle de la classe <IndPriv>
-//
+// Créer l'instance Individu Privé et gérer les méthodes
 //------------------------------------------------------------------------
 
 class IndPriv : public Utilisateur
@@ -29,17 +24,12 @@ public:
 	//*/
 
 	//-------------------------------------------- Constructeurs - destructeur
-	IndPriv(unsigned int id1, string mdp, string admail, string adresse, vector<Sensor> sensors); //Constructeur
-	// Mode d'emploi :
-	//
-	// Contrat : Aucun
-	//
 
-	~IndPriv(); // Destructeur
-						// Mode d'emploi :
-						//
-						// Contrat : Aucun
-						//
+	//Constructeur
+	IndPriv(unsigned int id1, string mdp, string admail, string adresse, vector<Sensor> sensors); 
+	
+	//Destructeur
+	~IndPriv(); 
 
 	//------------------------------------------------------------------ Protégé
 

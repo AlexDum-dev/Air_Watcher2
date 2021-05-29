@@ -1,12 +1,3 @@
-/*************************************************************************
-                           Data  -  description
-                             -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
-*************************************************************************/
-
-//---------- Interface de la classe <Data> (fichier Data.h) ----------------
 #if ! defined ( DATA_H )
 #define DATA_H
 
@@ -20,13 +11,9 @@
 #include "Attribute.h"
 #include "Provider.h"
 
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
-
 //------------------------------------------------------------------------
 // Rôle de la classe <Data>
-//
+// Exploiter les données des différents fichiers d'informations fournis
 //
 //------------------------------------------------------------------------
 
@@ -36,60 +23,55 @@ class Data
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
+    // initialiser les utilisateurs (à partir d'un fichier)
     bool initUsers(string nomFichier);
+
+    // initialiser les Sensors (à partir d'un fichier)
     bool initSensors(string nomFichier);
+
+    // initialiser les Providers (à partir d'un fichier)
     bool initProviders(string nomFichier);
+
+    // initialiser les mesures (à partir d'un fichier)
     bool initMeasurements(string nomFichier);
+
+    // initialiser les cleaners (à partir d'un fichier)
     bool initCleaners(string nomFichier);
+
+    // initialiser les attributes (à partir d'un fichier)
     bool initAttributes(string nomFichier);
 
+    // Méthode qui nous permet de classer les sensors 
     vector<pair<Sensor, int>> rankSensors(Sensor *sens, Utilisateur * user, Date date, int nbJours);
 
+    // Méthode qui nous permet de calculer l'indice ATMO (en fonction d'une zone) 
     int calculerIndiceAtmo(Coordonnees coord, int rayon, Utilisateur * user, Date date, int nbJour );
 
+    // Méthode qui nous permet de calculer l'indice ATMO (par Sensor)
     int calculerIndiceAtmo(Sensor sensor, Date date, int nbJour );
+
+    //getter de sensors
+    vector<Sensor> getSensors();
+
+    //getter de Measurement
+    vector<Measurement> getMeasurements();
 
 //------------------------------------------------- Surcharge d'opérateurs
     Data & operator = ( const Data & unData );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
-    vector<Sensor> getSensors();
-
-    vector<Measurement> getMeasurements();
-
+    //Constructeur
     Data ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
+    //Destructeur
     ~Data ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    
 
-//------------------------------------------------------------------ PRIVE
+//------------------------------------------------------------------ PROTECTED
 
 protected:
-//----------------------------------------------------- Méthodes protégées
-
 //----------------------------------------------------- Attributs protégés
     vector<Measurement> measurements;
     vector<Sensor> sensors;
@@ -100,7 +82,6 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Xxx>
 
-#endif // XXX_H
+#endif 
 

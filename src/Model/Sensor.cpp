@@ -1,21 +1,34 @@
+//---------------------------------------------------------------- INCLUDE
+
+//------------------------------------------------------ Include personnel
+
 #include "Sensor.h"
 
+
+//----------------------------------------------------- Méthodes publiques
+
+//getter de coordonnees
+Coordonnees Sensor::getCoordonnees()
+{
+    return coord;
+}
+
+//getter d'Id
+string Sensor::getId()
+{
+    return id;
+}
+
+//-------------------------------------------- Constructeurs - destructeur
+
+//Constructeur
 Sensor::Sensor(string unId, Coordonnees uneCoord)
 {
     id = unId;
     coord = uneCoord;
 }
 
-Coordonnees Sensor::getCoordonnees()
-{
-    return coord;
-}
-
-string Sensor::getId()
-{
-    return id;
-}
-
+//Destructeur
 Sensor::~Sensor()
 {
     

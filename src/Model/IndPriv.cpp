@@ -1,9 +1,3 @@
-/*************************************************************************
-                           IndPriv  -  description
-*************************************************************************/
-
-//----------Réalisation de la classe <IndPriv> (fichier IndPriv.cpp)
-
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
@@ -43,7 +37,7 @@ IndPriv::IndPriv (unsigned int id1, string mdp, string  admail, string adresse, 
     #ifdef MAP
         cout << "Appel au constructeur de <IndPriv>" << endl;
     #endif
-}//----- Fin du constructeur IndPriv
+}
  
 
 //Destructeur
@@ -53,4 +47,4 @@ IndPriv::~IndPriv ()
         cout << "Appel au destructeur de <IndPriv>" << endl;
     #endif
 
-} //----- Fin de destructeur ~IndPriv
+} 

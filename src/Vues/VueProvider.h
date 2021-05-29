@@ -1,8 +1,9 @@
-//---------- Interface de la classe <Trajet> (fichier VueAgenceGouv.h) ----------------
 #ifndef VUEPROVIDER_H
 #define VUEPROVIDER_H
 using namespace std;
 
+
+//--------------------------------------------------- Include utilisés
 #include "Vue.h"
 #include "../Model/Sensor.h"
 #include "../Model/Coordonnees.h"
@@ -10,28 +11,46 @@ using namespace std;
 #include "../Controller/ControllerUser.h"
 #include <iostream>
 
+
+//------------------------------------------------------------------------
+// Rôle de la classe <VueProvider>
+// La vue du Provider
+//
+//------------------------------------------------------------------------
+
 class VueProvider : public Vue
 {
+
+//----------------------------------------------------------------- PUBLIC
+
 public:
-    VueProvider();
 
-    void afficheInscription();
+    //-------------------------------------------- Méthode publique
+        
+        //Méthode qui affiche les données relatives à l'inscription
+        void afficheInscription();
+        
+        //Méthode qui affiche les données relatives à l'impact des Cleaners
+        void afficheImpactCleaner();
+        
+        //Méthode qui affiche les données relatives à l'authentification
+        void afficheAuthentification();
+        
+        //Méthode qui affiche les données par zone   
+        void afficheConsultDataZone();
     
-
-    void afficheImpactCleaner();
+        //Méthode qui affiche le menu
+        void afficheMenu();
     
+        //Méthode pour le choix d'une option dans un menu
+        void choixMenu(char choix);
 
-    void afficheAuthentification();
-    
-
-    void afficheConsultDataZone();
-   
-    void afficheMenu();
-   
-
-    void choixMenu(char choix);
-    
-    ~VueProvider();
+    //-------------------------------------------- Constructeurs - destructeur
+        //Constructeur
+        VueProvider();
+        
+        //Destructeur
+        ~VueProvider();
 };
 
 #endif

@@ -1,8 +1,3 @@
-/*************************************************************************
-                           Cleaner  -  description
-*************************************************************************/
-
-//----------Réalisation de la classe <Cleaner> (fichier Cleaner.cpp)
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -15,17 +10,15 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-
-
 //-------------------------------------------- Constructeurs - destructeur
-//Constructeur
 
+//Constructeur vide
 Cleaner::Cleaner()
 {
     
 }
+
+//Constructeur
 Cleaner::Cleaner (string id, Coordonnees coordinate, Date start, Date stop)
 {
     this->id = id;
@@ -36,13 +29,13 @@ Cleaner::Cleaner (string id, Coordonnees coordinate, Date start, Date stop)
     #ifdef MAP
         cout << "Appel au constructeur de <Cleaner>" << endl;
     #endif
-}//----- Fin du constructeur Cleaner
+}
 
+//getter de l'Id d'un cleaner
 string Cleaner::getId()
 {
     return id;
 }
- 
 
 //Destructeur
 Cleaner::~Cleaner () 
@@ -51,4 +44,4 @@ Cleaner::~Cleaner ()
         cout << "Appel au destructeur de <Cleaner>" << endl;
     #endif
 
-} //----- Fin de destructeur ~Cleaner
+}

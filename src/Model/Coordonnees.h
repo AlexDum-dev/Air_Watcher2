@@ -1,17 +1,9 @@
-
-//---------- Interface de la classe <Coordonnees> (fichier Coordonnees.h) ----------------
 #if ! defined ( Coordonnees_H )
 #define Coordonnees_H
 
-//--------------------------------------------------- Interfaces utilisées
-
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
-
 //------------------------------------------------------------------------
 // Rôle de la classe <Coordonnees>
-//
+// Créer une entité coordonnées à partir de longitude et de latitude
 //
 //------------------------------------------------------------------------
 
@@ -27,46 +19,40 @@ public:
     // Contrat :
     //
 
+    //getter de Latitude
     float GetLatitude ( );
   
-
+    //getter de Longitude
     float GetLongitude ( );
   
-
+    //setter de Latitude
     void SetLatitude ( float uneLatitude );
     
-
+    //setter de Longitude
     void SetLongitude ( float uneLongitude );
     
 
-//------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
+    
+    //Constructeur
     Coordonnees();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
+    
     Coordonnees ( float uneLatitude, float uneLongitude );
 
-    virtual ~Coordonnees ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Destructeur
+    ~Coordonnees();
+    
 
-//------------------------------------------------------------------ PRIVE
+//------------------------------------------------------------------ PROTECTED
 
 protected:
-//----------------------------------------------------- Méthodes protégées
-
 //----------------------------------------------------- Attributs protégés
     float latitude, longitude;
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Xxx>
 
-#endif // XXX_H
+
+#endif
 

@@ -1,8 +1,9 @@
-//---------- Interface de la classe <Trajet> (fichier VueAgenceGouv.h) ----------------
 #ifndef VUEINDPRIV_H
 #define VUEINDPRIV_H
 using namespace std;
 
+
+//--------------------------------------------------- Include utilisés
 #include "Vue.h"
 #include "../Model/Sensor.h"
 #include "../Model/Coordonnees.h"
@@ -10,31 +11,48 @@ using namespace std;
 #include "../Controller/ControllerUser.h"
 #include <iostream>
 
+//------------------------------------------------------------------------
+// Rôle de la classe <VueIndPriv>
+// La vue de l'individu privé
+//
+//------------------------------------------------------------------------
+
 class VueIndPriv : public Vue
 {
+
+//----------------------------------------------------------------- PUBLIC
+
 public:
-    VueIndPriv();
-    void afficheInscription();
-  
 
-    void afficheImpactCleaner();
+    //-------------------------------------------- Méthode publique
+
+        //Méthode qui affiche les données relatives à l'inscription
+        void afficheInscription();
     
+        //Méthode qui affiche les données relatives à l'impact des Cleaners
+        void afficheImpactCleaner();
+        
+        //Méthode qui affiche les données relatives à l'authentification
+        void afficheAuthentification();
 
-    void afficheAuthentification();
+        //Méthode qui affiche les données par zone        
+        void afficheConsultDataZone();
+        
+        //Méthode qui affiche les données relatives à l'installation sensor 
+        void afficheInstallSensor();
+        
+        //Méthode qui affiche le menu
+        void afficheMenu();
     
-    void afficheConsultDataZone();
-    
+        //Méthode pour le choix d'une option dans un menu
+        void choixMenu(char choix);
 
-    void afficheInstallSensor();
-    
-
-    void afficheMenu();
-   
-
-    void choixMenu(char choix);
-    
-
-~VueIndPriv();
+    //-------------------------------------------- Constructeurs - destructeur
+        //Constructeur
+        VueIndPriv();
+        
+        //Destructeur
+        ~VueIndPriv();
 };
 
 #endif

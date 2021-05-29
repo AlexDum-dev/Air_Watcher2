@@ -16,8 +16,8 @@ Measurement:: Measurement(string sensorId, Date timestamp, double value, string 
     value=value;
     attributeId = attributeId;
 }
-//Destructeur
 
+//Destructeur
 Measurement::~Measurement()
 {
     #ifdef MAP
@@ -25,8 +25,20 @@ Measurement::~Measurement()
     #endif
 }
 
-//----------------------------------------------------------------- PUBLIC
+//getter de date
+Date Measurement::getDate()
+{
+    return timestamp;
+}
 
-//----------------------------------------------------- Méthodes publiques
+//getter de valeur d'un sensor
+double Measurement ::getValue()
+{
+    return value;
+}
 
-// Méthode qui nous permet de  
+//getter de l'id d'un sensor
+string Measurement ::getSensorId()
+{
+    return sensorId;
+}

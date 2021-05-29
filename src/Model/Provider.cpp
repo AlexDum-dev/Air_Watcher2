@@ -1,13 +1,3 @@
-/*************************************************************************
-                           Provider  -  description
-                             -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
-*************************************************************************/
-
-//---------- Réalisation de la classe <Provider> (fichier Provider.cpp) ------------
-
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
@@ -22,36 +12,29 @@ using namespace std;
 #include "Cleaner.h"
 #include "Provider.h"
 
-//------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Provider::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
+//setter de cleaners
 void Provider::SetCleaners(vector<Cleaner> c)
 {
     cleaners = c;
 }
 
 //-------------------------------------------- Constructeurs - destructeur
+
+//Co,structeur de copie
 Provider::Provider ( const Provider & unProvider )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Provider>" << endl;
 #endif
-} //----- Fin de Provider (constructeur de copie)
+} 
 
-
+//Constructeur
 Provider::Provider (string id, string mdp, string  admail )
-// Algorithme :
-//
 {
     id = id;
     mdp = mdp;
@@ -59,20 +42,12 @@ Provider::Provider (string id, string mdp, string  admail )
 #ifdef MAP
     cout << "Appel au constructeur de <Provider>" << endl;
 #endif
-} //----- Fin de Provider
+}
 
-
+//Destructeur
 Provider::~Provider ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <Provider>" << endl;
 #endif
-} //----- Fin de ~Provider
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
-
+} 

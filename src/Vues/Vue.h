@@ -1,36 +1,58 @@
 #ifndef VUE_H
 #define VUE_H
 
+//--------------------------------------------------- Include utilisé
 #include "../Controller/ControllerUser.h"
 #include "../Model/Utilisateur.h"
 #include "../Model/AgenceGouv.h"
 
+//------------------------------------------------------------------------
+// Rôle de la classe <Vue>
+// Classe abstraite dont hérite toutes les vues
+//
+//------------------------------------------------------------------------
 
 
 class Vue 
 {
+    //----------------------------------------------------------------- PUBLIC
     public : 
 
-        Vue(){}
+
+        //--------------------------------------------------- Méthode publiques
         
-        virtual void afficheMenu(){}
+        //Méthode pour affihcer le menu
+        virtual void afficheMenu() =0;
 
-        virtual void ChoixMenu(char userEntry) const = 0;
+        //Méthode pour le choix d'un option d'un menu
+        virtual void ChoixMenu(char userEntry) {};
 
-        virtual void afficheInscription(){}
+        //Méthode qui affiche les données relatives à l'inscription
+        virtual void afficheInscription() {};
 
-        virtual void afficheImpactCleaner(){}
+        //Méthode qui affiche les données relatives à l'impact des Cleaners
+        virtual void afficheImpactCleaner() {};
 
-        virtual void afficheAuthentification(){}
+        //Méthode qui affiche les données relatives à l'authentification
+        virtual void afficheAuthentification() {};
 
-        virtual void afficheConsultDataZone(){}
+        //Méthode qui affiche les données par zone
+        virtual void afficheConsultDataZone() {};
 
+        //-------------------------------------------- Constructeurs - destructeur
+        
+        //Constructeur
+        Vue(){}
+
+        //Destructeur
         virtual ~Vue(){}
 
 
+    //-------------------------------------------------------------- PROTECTED
 
     protected : 
 
+        //----------------------------------------------------- Attributs protégés
         ControllerUser controller;
 
 };

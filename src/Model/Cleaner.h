@@ -1,8 +1,3 @@
-/*************************************************************************
-                           Cleaner  -  description
-*************************************************************************/
-
-//---------- Interface de la classe <Cleaner> (fichier Cleaner.h) ----
 #if ! defined ( CLEANER_H )
 #define CLEANER_H
 
@@ -11,7 +6,7 @@
 #include "Date.h"
 //------------------------------------------------------------------------
 // Rôle de la classe <Cleaner>
-//
+// Créer l'instance Cleaners et gérer les méthodes
 //------------------------------------------------------------------------
 
 
@@ -20,38 +15,29 @@ class Cleaner
 //----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- Méthodes publiques
-
- 
-	
 
 //-------------------------------------------- Constructeurs - destructeur
 
+	//Constructeur
 	Cleaner();
-	Cleaner (string id, Coordonnees coordinate, Date start, Date stop); //Constructeur
-	// Mode d'emploi :
-	//              
-	// Contrat : Aucun
-	//
 
+	Cleaner (string id, Coordonnees coordinate, Date start, Date stop); 
+	
+	//getter de l'Id d'un cleaner
 	string getId();
 
-	virtual ~Cleaner (); // Destructeur
-	// Mode d'emploi : 
-	//
-	// Contrat : Aucun
-	//
+	// Destructeur
+	virtual ~Cleaner (); 
+	
 
 //------------------------------------------------------------------ Protégé
 	
 protected:
 
-string id;
-Coordonnees coordinate;
-Date start;
-Date stop;
-
-//Les autres attributs de cette classe sont hérités de la classe mère: Utilisateur
+	string id;
+	Coordonnees coordinate;
+	Date start;
+	Date stop;
 	
 };
 #endif

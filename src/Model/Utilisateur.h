@@ -7,12 +7,11 @@
 using namespace std;
 #include "Coordonnees.h"
 #include "Date.h"
-//------------------------------------------------------------- Constantes
 
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-//  
+// Rôle de la classe <Utilisateur>
+// Classe abstraite dont dérive d'autres classes
 //
 //------------------------------------------------------------------------
 
@@ -22,41 +21,35 @@ class Utilisateur
 
 public:
 
-   
 
- 
+//-------------------------------------------- Méthodes publiques
+
+    //Méthode d'authetification
+    //virtual Utilisateur * Authentificate(string id, string mdp){}
+
+    //Méthode qui determine l'impacte des Cleaner
+    //virtual int ImpactCleaner(Coordonnees coord, Date date);
+
+    //Méthodes pour consulter la data par zone
+    //virtual vector<Sensor> consultDataZone(Cordonnees coord, int rayon);
+
+    //Méthode de déconnexion
+    //virtual void deconnexion()
+
 //-------------------------------------------- Constructeurs - destructeur
 
     //Utilisateur (unsigned int id, string mdp, string  admail );
-    // Mode d'emploi :
-    // Contruit un objet de type Data vide.
-    // Contrat :
-    //
-
+    
+    //Constructeur
     Utilisateur() {} 
 
-    //virtual Utilisateur * Authentificate(string id, string mdp){}
-
-
-    //virtual int ImpactCleaner(Coordonnees coord, Date date);
-
-    //virtual vector<Sensor> consultDataZone(Cordonnees coord, int rayon);
-
-    //virtual void deconnexion()
-
+    //Destructeur
     virtual ~Utilisateur ( ){}
-    // Mode d'emploi :
-    // Détruit l'objet Data.
-    // Contrat :
-    //
 
-//------------------------------------------------------------------ PRIVE
+
+//-------------------------------------------------------------- PROTECTED
 
 protected:
-//----------------------------------------------------- Méthodes protégées
-
-
-    
 
 //----------------------------------------------------- Attributs protégés
 
@@ -65,6 +58,5 @@ protected:
     string mail;
 };
 
-//-------------------------------- Autres définitions dépendantes de <Data>
 
-#endif // UTILISATEUR_H
+#endif 

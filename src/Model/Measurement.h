@@ -1,20 +1,19 @@
-/*************************************************************************
-                           Measurement  -  description
-*************************************************************************/
-
-//---------- Interface de la classe <Measurement> (fichier Measurement.h) ----
 #if ! defined(MEASUREMENT_H)
 #define MEASUREMENT_H
 
+//---------------------------------------------------------------- INCLUDE
+
+//-------------------------------------------------------- Include système
 #include <string>
 using namespace std;
 #include "Date.h"
 //--------------------------------------------------- Interfaces utilisées
 //#include ".h"
 //#include ".h"
+
 //------------------------------------------------------------------------
 // Rôle de la classe <Measurement>
-//
+// Créer l'instance Measurement et gérer les méthodes
 //------------------------------------------------------------------------
 
 
@@ -22,30 +21,25 @@ class Measurement{
 //----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- Méthodes publiques
 
-       
+	//-------------------------------------------- méthodes publique
 
-	
-
-//-------------------------------------------- Constructeurs - destructeur
-	Measurement (string sensorId, Date timestamp, double value, string attributeId); //Constructeur
-	// Mode d'emploi :
-	//              
-	// Contrat : Aucun
-	//
-
+	//getter de l'id d'un sensor
 	string getSensorId();
 
+	//getter de date
 	Date getDate();
 
+	//getter de valeur d'un sensor
 	double getValue();
 
-	virtual ~Measurement (); // Destructeur
-	// Mode d'emploi : 
-	//
-	// Contrat : Aucun
-	//
+	//-------------------------------------------- Constructeurs - destructeur
+
+	//Constructeur
+	Measurement (string sensorId, Date timestamp, double value, string attributeId);
+
+	// Destructeur
+	virtual ~Measurement (); 
 
 //------------------------------------------------------------------ Protégé
 	

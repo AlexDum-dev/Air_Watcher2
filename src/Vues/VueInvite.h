@@ -1,8 +1,8 @@
-//---------- Interface de la classe <Trajet> (fichier VueAgenceGouv.h) ----------------
 #ifndef VUEINVITE_H
 #define VUEINVITE_H
 using namespace std;
 
+//--------------------------------------------------- Include utilisés
 #include "Vue.h"
 #include "../Model/Sensor.h"
 #include "../Model/Coordonnees.h"
@@ -10,28 +10,45 @@ using namespace std;
 #include "../Controller/ControllerUser.h"
 #include <iostream>
 
+//------------------------------------------------------------------------
+// Rôle de la classe <VueInvite>
+// La vue de l'invite
+//
+//------------------------------------------------------------------------
+
 class VueInvite : public Vue
 {
+
+//----------------------------------------------------------------- PUBLIC
+
 public:
-    VueInvite();
 
-    void afficheInscription();
+    //-------------------------------------------- Méthode publique
+        
+        //Méthode qui affiche les données relatives à l'inscription
+        void afficheInscription();
 
-    void afficheImpactCleaner();
+        //Méthode qui affiche les données relatives à l'impact des Cleaners
+        void afficheImpactCleaner();
+        
+        //Méthode qui affiche les données relatives à l'authentification
+        void afficheAuthentification();
     
+        //Méthode qui affiche les données par zone   
+        void afficheConsultDataZone();
+        
+        //Méthode qui affiche le menu
+        void afficheMenu();
+        
+        //Méthode pour le choix d'une option dans un menu
+        void choixMenu(char choix);
 
-    void afficheAuthentification();
-   
-
-    void afficheConsultDataZone();
+    //-------------------------------------------- Constructeurs - destructeur
+        //Constructeur
+        VueInvite();
     
-
-    void afficheMenu();
-    
-
-    void choixMenu(char choix);
-   
-    ~VueInvite();
+        //Destructeur
+        ~VueInvite();
 };
 
 #endif

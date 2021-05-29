@@ -1,9 +1,3 @@
-/*************************************************************************
-                           Attribute  -  description
-*************************************************************************/
-
-//----------Réalisation de la classe <Attribute> (fichier Attribute.cpp)
-
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
@@ -15,11 +9,9 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-
 
 //-------------------------------------------- Constructeurs - destructeur
+
 //Constructeur
 Attribute::Attribute (string unId, string unUnit, string unDescription)
 {
@@ -30,7 +22,7 @@ Attribute::Attribute (string unId, string unUnit, string unDescription)
     #ifdef MAP
         cout << "Appel au constructeur de <Attribute>" << endl;
     #endif
-}//----- Fin du constructeur Attribute
+}
  
 
 //Destructeur
@@ -40,4 +32,4 @@ Attribute::~Attribute ()
         cout << "Appel au destructeur de <Attribute>" << endl;
     #endif
 
-} //----- Fin de destructeur ~Attribute
+}

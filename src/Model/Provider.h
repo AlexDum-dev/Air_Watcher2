@@ -1,12 +1,3 @@
-/*************************************************************************
-                           Provider  -  description
-                             -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
-*************************************************************************/
-
-//---------- Interface de la classe <Provider> (fichier Provider.h) ----------------
 #if ! defined ( Provider_H )
 #define Provider_H
 
@@ -17,13 +8,10 @@
 #include "Utilisateur.h"
 #include "Cleaner.h"
 
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Provider>
-//
+// Créer l'instance Providers et gérer les méthodes
 //
 //------------------------------------------------------------------------
 
@@ -33,11 +21,6 @@ class Provider : public Utilisateur
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     //virtual bool Inscription ( liste des paramètres );
     // Mode d'emploi :
@@ -57,47 +40,38 @@ public:
     // Contrat :
     //
 
+    //setter de Cleaners
     void SetCleaners(vector<Cleaner> c);
 
 
 //------------------------------------------------- Surcharge d'opérateurs
     Provider & operator = ( const Provider & unProvider );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
+    
 
 //-------------------------------------------- Constructeurs - destructeur
+
+    //Constructeur de copie
     Provider ( const Provider & unProvider );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
+    //Constructeur
     Provider ( string id, string mdp, string  admail);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
+    //Destructeur
     virtual ~Provider ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
-//------------------------------------------------------------------ PRIVE
+
+//------------------------------------------------------------------ PROTECTED
 
 protected:
-//----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
     vector<Cleaner> cleaners;
 
+    //Les autres attributs de cette classe sont hérités de la classe mère: Utilisateur
+
 };
 
-//-------------------------------- Autres définitions dépendantes de <Provider>
+
 
 #endif // Provider_H
 

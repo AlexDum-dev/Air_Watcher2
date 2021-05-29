@@ -1,7 +1,8 @@
-//---------- Interface de la classe <Trajet> (fichier Trajet.h) ----------------
 #if ! defined ( AGENCEGOUV_H )
 #define AGENCEGOUV_H
 
+
+//--------------------------------------------------- Include utilisés
 #include "Utilisateur.h"
 #include "Sensor.h"
 #include "Coordonnees.h"
@@ -21,15 +22,13 @@ class AgenceGouv : public Utilisateur
 //----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- Méthodes publiques
-    
-    
-
 //-------------------------------------------- Constructeurs - destructeur
     
     AgenceGouv (unsigned int id, string adresseMail, string mdp); //Constructeur
 	
 	virtual ~AgenceGouv (); // Destructeur
+
+//Les attributs de cette classe sont hérités de la classe mère: Utilisateur
 	
 
 };

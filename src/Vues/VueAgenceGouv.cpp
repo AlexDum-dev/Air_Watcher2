@@ -1,62 +1,77 @@
+//---------------------------------------------------------------- INCLUDE
+
+//-------------------------------------------------------- Include personnel
 #include "VueAgenceGouv.h"
 
+//Constructeur
 VueAgenceGouv:: VueAgenceGouv ()
 {
 
 }
 
+//Méthode qui affiche les données relatives à l'inscription
 void VueAgenceGouv::afficheInscription()
 {
     cout<<"Fonctionnalité non disponible pour le moment"<<endl;
 }
 
+//Méthode qui affiche les données relatives à l'impact des cleaners
 void VueAgenceGouv::afficheImpactCleaner()
 {
     cout<<"Fonctionnalité non disponible pour le moment"<<endl;
 }
 
+//Méthode qui affiche les données relatives à l'authentification
 void VueAgenceGouv::afficheAuthentification()
 {
     cout<<"Fonctionnalité non disponible pour le moment"<<endl;
 }
 
+//Méthode qui affiche les données par zone
 void VueAgenceGouv::afficheConsultDataZone()
 {
     cout<<"Fonctionnalité non disponible pour le moment"<<endl;
 }
 
+//Méthode qui affiche les zones avec des qualités d'air similaires
 void VueAgenceGouv::afficheIdentifierAirSim()
 {
     cout<<"Fonctionnalité non disponible pour le moment"<<endl;
 }
 
+//Méthode qui affiche les données relatives à l'état d'un sensor
 void VueAgenceGouv::afficheCheckSensor()
 {
     cout<<"Fonctionnalité non disponible pour le moment"<<endl;
 }
 
+//Méthode qui affiche les données relatives à l'ajout d'un capteur
 void VueAgenceGouv::afficheAjouterCapteur()
 {
     cout<<"Fonctionnalité non disponible pour le moment"<<endl;
 }
 
+//Méthode qui affiche les données relatives à l'etat de validité d'un individu privé
 void VueAgenceGouv::afficheCheckIndPriv()
 {
     cout<<"Fonctionnalité non disponible pour le moment"<<endl;
 }
 /*
+//Méthode qui affiche les données relatives à l'indice ATMO par zone
 void VueAgenceGouv::afficheCalculerIndiceAtmo(Coordonnees coord, int rayon, Date date, int nbJours)
 {
     int indiceAtmo =controller.actionMenuCalculerIndiceAtmo(coord, rayon, date, nbJours);
     cout<<"La moyenne de l'indice ATMO dans la zone selectionnée est la suivante :"<< indiceAtmo<<endl;
 }
 
+//Méthode qui affiche les données relatives à l'indice ATMO par sensor
 void VueAgenceGouv::afficheCalculerIndiceAtmo(string sensorID, Date date, int nbJours)
 {
     int indiceAtmo =controller.actionMenuCalculerIndiceAtmo(sensorID, date, nbJours);
     cout<<"La valeur de l'indice ATMO du sensor selectionné est la suivante :"<< indiceAtmo<<endl;
 }
 
+//Méthode qui affiche les données relatives au classement des sensors en terme de similitude à un autre sensor
 void VueAgenceGouv::afficheRankSensors(string SensorID, Date date, int nbJours)
 {
     vector<pair<Sensor,int>> rankSensor=controller.actionMenuRankSensors(SensorID, date,nbJours);
@@ -68,35 +83,46 @@ void VueAgenceGouv::afficheRankSensors(string SensorID, Date date, int nbJours)
     }
 }
 */
+
+//Méthode pour le choix d'une option dans un menu
 void VueAgenceGouv::choixMenu(char choix){
 
     switch (choix)
     {
     case 'a':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             afficheInscription();
+            cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
 
     case 'b':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             afficheAuthentification();
+            cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
 
     case 'c':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             afficheImpactCleaner();
+            cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
 
     case 'd':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             afficheConsultDataZone();
+            cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
     case 'e':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             float longitude,latitude;
             int rayon;
             cout<<"entrez la longitude"<<endl;
@@ -124,10 +150,12 @@ void VueAgenceGouv::choixMenu(char choix){
             cin>> nbJour;
 
             //afficheCalculerIndiceAtmo(*coord,rayon,*date,nbJour);
+            cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
         case 'f':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             cout<<"Entrez un sensorID"<<endl;
             string sensorID;
             cin>>sensorID;
@@ -144,11 +172,13 @@ void VueAgenceGouv::choixMenu(char choix){
             cin>> nbJour;
 
             //afficheCalculerIndiceAtmo(sensorID,*date,nbJour);
+            cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
 
         case 'g':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             cout<<"Entrez un sensorID"<<endl;
             string sensorID;
             cin>>sensorID;
@@ -166,29 +196,38 @@ void VueAgenceGouv::choixMenu(char choix){
             cin>> nbJour;
 
             //afficheRankSensors(sensorID,*date,nbJour);
+            cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
         case 'h':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             afficheIdentifierAirSim();
+            cout<<"*******************************************************************************************************************"<< endl;
             break;
         }
 
         case 'i':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             afficheCheckSensor();
+            cout<<"*******************************************************************************************************************"<< endl;
             break;
         }
 
         case 'j':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             afficheAjouterCapteur();
+            cout<<"*******************************************************************************************************************"<< endl;
             break;
         }
 
         case 'k':
         {
+            cout<<"*******************************************************************************************************************"<< endl;
             afficheCheckIndPriv();
+            cout<<"*******************************************************************************************************************"<< endl;
             break;
         }
        
@@ -197,6 +236,7 @@ void VueAgenceGouv::choixMenu(char choix){
     }
 }
 
+//Méthode qui affiche le menu
 void VueAgenceGouv::afficheMenu(){
 
     char choix;
@@ -224,7 +264,7 @@ void VueAgenceGouv::afficheMenu(){
 
 }
 
-
+//destructeur
 VueAgenceGouv:: ~VueAgenceGouv()
 {
 
