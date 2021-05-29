@@ -42,3 +42,8 @@ string Measurement::getSensorId()
 {
     return sensorId;
 }
+
+string Measurement::getAttributeId()
+{
+    return attributeId;
+}

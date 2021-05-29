@@ -33,6 +33,8 @@ public:
 	//getter de valeur d'un sensor
 	double getValue();
 
+	string getAttributeId();
+
 	//-------------------------------------------- Constructeurs - destructeur
 
 	//Constructeur

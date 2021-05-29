@@ -43,6 +43,10 @@ vector<Sensor> Data::getSensors()
     return sensors;
 }
 
+vector<Measurement> Data::getMeasurements()
+{
+    return measurements;
+}
 
 //Initialiser les Sensors(à partir d'un fichier)
 bool Data::initSensors(string nomFichier)
@@ -188,10 +192,45 @@ bool Data::initUsers(string nomFichier)
 
 
 //initialiser les mesures des sensors ( à partir d'un fichier)
-bool Data::initMeasurements(string nomFichier) // A FAIRE !!!
+bool Data::initMeasurements(string nomFichier) // Fonctionne !!
 {
     bool res = true;
-    
+
+    ifstream file (nomFichier);
+
+    if (!file)
+    {
+        return false;
+    }
+
+    while(!file.eof())
+    {
+        string sensorId;
+        string trash;
+        string attributeId,value;
+        string annee, mois, jour;
+
+        
+
+        getline(file,annee,'-');
+        getline(file,mois,'-');
+        getline(file,jour,' ');
+        getline(file,trash,';');
+
+        getline(file,sensorId,';');
+        getline(file,attributeId,';');
+        getline(file,value,';');
+        
+        Date date(stoi(mois),stoi(jour),stoi(annee));
+
+        //cout << "annee:" << annee << " mois:" << mois << " jour:" << jour << endl;
+
+        Measurement unMeasurement(sensorId,date,stod(value),attributeId);
+
+        measurements.push_back(unMeasurement);
+        file.get();
+    }
+
     return res;
 }
 
