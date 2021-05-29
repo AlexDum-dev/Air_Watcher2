@@ -48,7 +48,7 @@ vector<Sensor> Data::getSensors()
 bool Data::initSensors(string nomFichier)
 {
     bool res = true;
-    /*
+    
     ifstream file (nomFichier);
 
     if (!file)
@@ -73,21 +73,6 @@ bool Data::initSensors(string nomFichier)
         sensors.push_back(unSensor);
         file.get();
     }
-    */
-    Coordonnees coord(0.0, 0.0);
-    Sensor s("sensor0", coord); //Atmo = 1
-
-    Coordonnees coord1(0.1, 0.1);
-    Sensor s1("sensor1", coord1); //Atmo = 2
-
-    Coordonnees coord2(1.0, 1.0);
-    Sensor s2("sensor2", coord2); //atmo = 1 
-
-    sensors.push_back(s);
-    sensors.push_back(s1);
-    sensors.push_back(s2);
-
-
 
     return res;
 }
@@ -206,37 +191,6 @@ bool Data::initUsers(string nomFichier)
 bool Data::initMeasurements(string nomFichier) // A FAIRE !!!
 {
     bool res = true;
-    //Date * date = new Date(20,1,2021);
-    Date date(20,1,2021); 
-    Measurement m("sensor0", date,1.0, "03");
-    Measurement m1("sensor0", date,2.0, "NO2");
-    Measurement m2("sensor0", date,3.0, "SO2");
-    Measurement m3("sensor0", date,4.0, "PM10");
-
-    measurements.push_back(m);
-    measurements.push_back(m1);
-    measurements.push_back(m2);
-    measurements.push_back(m3);
-
-    Measurement m4("sensor1", date,1.0, "03");
-    Measurement m5("sensor1", date,2.0, "NO2");
-    Measurement m6("sensor1", date,3.0, "SO2");
-    Measurement m7("sensor1", date,10.0, "PM10");
-
-    measurements.push_back(m4);
-    measurements.push_back(m5);
-    measurements.push_back(m6);
-    measurements.push_back(m7);
-
-    Measurement m8("sensor2", date,1.0, "03");
-    Measurement m9("sensor2", date,2.0, "NO2");
-    Measurement m10("sensor2", date,3.0, "SO2");
-    Measurement m11("sensor2", date,4.0, "PM10");
-
-    measurements.push_back(m8);
-    measurements.push_back(m9);
-    measurements.push_back(m10);
-    measurements.push_back(m11);
     
     return res;
 }
