@@ -48,6 +48,10 @@ vector<Measurement> Data::getMeasurements()
     return measurements;
 }
 
+vector <Cleaner> Data:: getCleaners(){
+    return cleaners;
+}
+
 //Initialiser les Sensors(à partir d'un fichier)
 bool Data::initSensors(string nomFichier)
 {
@@ -105,12 +109,12 @@ bool Data::initCleaners(string nomFichier)
         getline(file,longi,';');
         getline(file,annee,'-');
         getline(file,mois,'-');
-        getline(file,jour,'-');
+        getline(file,jour,' ');
         getline(file,trash,';');
         Date dateStart(stoi(mois),stoi(jour),stoi(annee));
         getline(file,annee,'-');
         getline(file,mois,'-');
-        getline(file,jour,'-');
+        getline(file,jour,' ');
         Date dateStop(stoi(mois),stoi(jour),stoi(annee));
         getline(file,trash,';');
 

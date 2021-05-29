@@ -57,6 +57,9 @@ public:
     //getter de Measurement
     vector<Measurement> getMeasurements();
 
+    //getter des cleaners
+    vector <Cleaner> getCleaners();
+
 
 //-------------------------------------------- Constructeurs - destructeur
 

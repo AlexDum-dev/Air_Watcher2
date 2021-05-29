@@ -37,6 +37,21 @@ string Cleaner::getId()
     return id;
 }
 
+//Getter des coordonnées d'un cleaner
+Coordonnees Cleaner::getCoordonnees(){
+    return coordinate;
+}
+
+//Getter de date de début
+Date Cleaner::getDateDebut(){
+    return start;
+}
+
+//Getter de date de fin 
+Date Cleaner::getDateFin(){
+    return stop;
+}
+
 //Destructeur
 Cleaner::~Cleaner () 
 {

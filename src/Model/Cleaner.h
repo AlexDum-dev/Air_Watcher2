@@ -27,7 +27,18 @@ public:
 	string getId();
 
 	// Destructeur
-	virtual ~Cleaner (); 
+	virtual ~Cleaner ();
+
+	//Getter des coordonnées d'un cleaner
+	Coordonnees getCoordonnees();
+
+	//Getter de date de début
+	Date getDateDebut();
+
+	//Getter de date de fin 
+	Date getDateFin();
+
+	
 	
 
 //------------------------------------------------------------------ Protégé

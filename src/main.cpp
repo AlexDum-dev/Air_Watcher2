@@ -12,7 +12,17 @@ int main()
 
     //data.initSensors("./dataset/sensors.csv");
     //data.initCleaners("./dataset/cleaners.csv");
-    data.initMeasurements("./dataset/measurements.csv");
+    //data.initMeasurements("./dataset/measurements.csv");
+
+    /*
+    for(unsigned int i =0; i<data.getCleaners().size(); i++){
+        cout << "Cleaner :" <<data.getCleaners().at(i).getId()<<endl;
+        cout << "DateDebut :" <<data.getCleaners().at(i).getDateDebut()<<endl;
+        cout << "Latitude :" <<data.getCleaners().at(i).getCoordonnees().GetLatitude()<<endl;
+        cout << "Longitude :" <<data.getCleaners().at(i).getCoordonnees().GetLongitude()<<endl;
+        cout << "DateFin :" <<data.getCleaners().at(i).getDateFin()<<endl;
+
+    }*/
 
 
 
