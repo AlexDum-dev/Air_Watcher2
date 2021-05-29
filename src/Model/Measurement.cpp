@@ -9,12 +9,12 @@ using namespace std;
 //-------------------------------------------- Constructeurs - destructeur
 
 //Constructeur
-Measurement:: Measurement(string sensorId, Date timestamp, double value, string attributeId)
+Measurement:: Measurement(string unsensorId, Date untimestamp, double unvalue, string unattributeId)
 {
-    sensorId= sensorId;
-    timestamp= timestamp;
-    value=value;
-    attributeId = attributeId;
+    sensorId= unsensorId;
+    timestamp= untimestamp;
+    value=unvalue;
+    attributeId = unattributeId;
 }
 
 //Destructeur
@@ -32,13 +32,13 @@ Date Measurement::getDate()
 }
 
 //getter de valeur d'un sensor
-double Measurement ::getValue()
+double Measurement::getValue()
 {
     return value;
 }
 
 //getter de l'id d'un sensor
-string Measurement ::getSensorId()
+string Measurement::getSensorId()
 {
     return sensorId;
 }

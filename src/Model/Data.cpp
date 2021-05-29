@@ -14,9 +14,10 @@ using namespace std;
 #include "Sensor.h"
 #include "Utilisateur.h"
 #include "Provider.h"
+#include <cmath>
 
 //Méthode qui nous permet de trier par le deuxième élément d'une pair
-bool sortbysec(const pair<Sensor,int> &a, const pair<Sensor,int> &b)
+bool sortbysec(const pair<string,int> &a, const pair<string,int> &b)
 {
     return (a.second < b.second);
 }
@@ -47,7 +48,7 @@ vector<Sensor> Data::getSensors()
 bool Data::initSensors(string nomFichier)
 {
     bool res = true;
-
+    /*
     ifstream file (nomFichier);
 
     if (!file)
@@ -72,6 +73,21 @@ bool Data::initSensors(string nomFichier)
         sensors.push_back(unSensor);
         file.get();
     }
+    */
+    Coordonnees coord(0.0, 0.0);
+    Sensor s("sensor0", coord); //Atmo = 1
+
+    Coordonnees coord1(0.1, 0.1);
+    Sensor s1("sensor1", coord1); //Atmo = 2
+
+    Coordonnees coord2(1.0, 1.0);
+    Sensor s2("sensor2", coord2); //atmo = 1 
+
+    sensors.push_back(s);
+    sensors.push_back(s1);
+    sensors.push_back(s2);
+
+
 
     return res;
 }
@@ -189,7 +205,39 @@ bool Data::initUsers(string nomFichier)
 //initialiser les mesures des sensors ( à partir d'un fichier)
 bool Data::initMeasurements(string nomFichier) // A FAIRE !!!
 {
-    bool res;
+    bool res = true;
+    //Date * date = new Date(20,1,2021);
+    Date date(20,1,2021); 
+    Measurement m("sensor0", date,1.0, "03");
+    Measurement m1("sensor0", date,2.0, "NO2");
+    Measurement m2("sensor0", date,3.0, "SO2");
+    Measurement m3("sensor0", date,4.0, "PM10");
+
+    measurements.push_back(m);
+    measurements.push_back(m1);
+    measurements.push_back(m2);
+    measurements.push_back(m3);
+
+    Measurement m4("sensor1", date,1.0, "03");
+    Measurement m5("sensor1", date,2.0, "NO2");
+    Measurement m6("sensor1", date,3.0, "SO2");
+    Measurement m7("sensor1", date,10.0, "PM10");
+
+    measurements.push_back(m4);
+    measurements.push_back(m5);
+    measurements.push_back(m6);
+    measurements.push_back(m7);
+
+    Measurement m8("sensor2", date,1.0, "03");
+    Measurement m9("sensor2", date,2.0, "NO2");
+    Measurement m10("sensor2", date,3.0, "SO2");
+    Measurement m11("sensor2", date,4.0, "PM10");
+
+    measurements.push_back(m8);
+    measurements.push_back(m9);
+    measurements.push_back(m10);
+    measurements.push_back(m11);
+    
     return res;
 }
 
@@ -201,47 +249,48 @@ bool Data::initAttributes(string nomFichier)
     return res;
 }
 
-/*
-// Méthode qui nous permet de classer les sensors 
-vector <pair<Sensor, int>> Data::rankSensors(Sensor *sensor, Data data, Date timestamp, int nbJours)
-{
-    vector <pair <Sensor, int>> ranking;
-    ranking.push_back(make_pair(*sensor, 0));
 
-    for (auto i = data.getSensors().begin(); i!= data.getSensors().end(); ++i){
-        auto p = make_pair(*i, abs(calculerIndiceAtmo(*sensor, data, timestamp, nbJours)-calculerIndiceAtmo(*i, data, timestamp, nbJours)));
+// Méthode qui nous permet de classer les sensors 
+vector <pair<string, int>> Data::rankSensors(string sensorId,Date timestamp, int nbJours)
+{
+    vector <pair <string, int>> ranking;
+
+    for (auto i = sensors.begin(); i!= sensors.end(); ++i){
+        auto p = make_pair((*i).getId(), abs(calculerIndiceAtmo(sensorId, timestamp, nbJours)-calculerIndiceAtmo((*i).getId(), timestamp, nbJours)));
         ranking.push_back(p);
+
     }
     sort(ranking.begin(), ranking.end(), sortbysec);
 
     return ranking;
 }
 
-int Data:: calculerIndiceAtmo(Coordonnees coord, int rayon, Data data, Date date, int nbJour )
+
+int Data::calculerIndiceAtmo(Coordonnees coord, double rayon, Date date, int nbJour )
 {
     int result=0;
     //Parcourir tous les sensors
     //Calculer leur distance par rapport coord et si < rayon alors on les garde
     //pour chaque capteur on appelle calculerIndiceAtmo() et on fait la moyenne
-    vector<Sensor> listSensors = data.getSensors();
+    vector<Sensor> listSensors = sensors;
     int compteur = 0;
-    double sommeIndice = 0;
+    int sommeIndice = 0;
     for(Sensor s : listSensors)
     {
-        int distance = sqrt(pow((s.getCoordonnees().GetLatitude() - coord.GetLatitude()),2) - pow((s.getCoordonnees().GetLongitude() - coord.GetLongitude()), 2));
+        double distance = sqrt(pow((s.getCoordonnees().GetLatitude() - coord.GetLatitude()),2) + pow((s.getCoordonnees().GetLongitude() - coord.GetLongitude()), 2));
         if(distance <= rayon)
         {
-            sommeIndice += calculerIndiceAtmo(s, data, date, nbJour);
+            sommeIndice += calculerIndiceAtmo(s.getId(), date, nbJour);
             compteur++;
         }
     }
 
-    return ( (double) sommeIndice/compteur);
+    int moyIndice = (int) floor(1+(sommeIndice/compteur));
+    return moyIndice;
 
 }
-*/
 
-int Data::calculerIndiceAtmo(Sensor sensor, Date date, int nbJour )
+int Data::calculerIndiceAtmo(string sensorID, Date date, int nbJour )
 {
     int result=0;
     vector<Measurement> sensorMeas;
@@ -255,12 +304,17 @@ int Data::calculerIndiceAtmo(Sensor sensor, Date date, int nbJour )
     for(auto i = measurements.begin(); i!= measurements.end(); ++i){
         Date dtmp = date;
         dtmp += nbJour;
-        if((*i).getSensorId() == sensor.getId() && (*i).getDate() > date && (*i).getDate()<=dtmp ){
+        if((*i).getSensorId() == sensorID && (*i).getDate() >= date && (*i).getDate()<=dtmp){
             sensorMeas.push_back(*i);
         }
     }
 
-    for(auto i = measurements.begin(); i!= measurements.end(); ++i){
+    if(sensorMeas.size() == 0)
+    {
+        return -1;
+    }
+
+    for(auto i = sensorMeas.begin(); i!= sensorMeas.end(); ++i){
         if(tmp%4==0){
             moyO3+=(*i).getValue();
         } else if(tmp%4==1){
@@ -273,21 +327,20 @@ int Data::calculerIndiceAtmo(Sensor sensor, Date date, int nbJour )
         tmp++;
     }
 
-    moyO3= moyO3/(tmp/4);
-    moyNO2= moyNO2/(tmp/4);
-    moySO2= moySO2/(tmp/4);
-    moyPM10= moyPM10/(tmp/4);
-
-    vector<int> moy;
+    moyO3= 4*moyO3/(tmp);
+    moyNO2= 4*moyNO2/(tmp);
+    moySO2= 4*moySO2/(tmp);
+    moyPM10= 4*moyPM10/(tmp);
+    vector<double> moy;
 
     moy.push_back(moyO3);
     moy.push_back(moyNO2);
     moy.push_back(moySO2);
     moy.push_back(moyPM10);
 
-    sort(moy.begin(), moy.end());
+    double max = *max_element(moy.begin(), moy.end());
 
-    if(moy[0]==moyO3){
+    if(max==moyO3){
         if(moyO3<=29){
             result=1;
         }else if(moyO3<=54){
@@ -309,7 +362,7 @@ int Data::calculerIndiceAtmo(Sensor sensor, Date date, int nbJour )
         }else {
             result=10;
         }
-    }else if (moy[0]==moyNO2){
+    }else if (max==moyNO2){
         if(moyNO2<=29){
             result=1;
         }else if(moyNO2<=54){
@@ -331,7 +384,7 @@ int Data::calculerIndiceAtmo(Sensor sensor, Date date, int nbJour )
         }else {
             result=10;
         }
-    }else if (moy[0]==moySO2){
+    }else if (max==moySO2){
         if(moySO2<=39){
             result=1;
         }else if(moySO2<=79){
@@ -353,7 +406,7 @@ int Data::calculerIndiceAtmo(Sensor sensor, Date date, int nbJour )
         }else {
             result=10;
         }
-    }else if (moy[0]==moyPM10){
+    }else if (max==moyPM10){
         if(moyPM10<=6){
             result=1;
         }else if(moyPM10<=13){
@@ -374,8 +427,9 @@ int Data::calculerIndiceAtmo(Sensor sensor, Date date, int nbJour )
             result=9;
         }else {
             result=10;
-        }
-
-        return result;
+        }    
+    }
+    
+    return result;
 
 }

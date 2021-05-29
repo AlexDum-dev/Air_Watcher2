@@ -43,13 +43,13 @@ public:
     bool initAttributes(string nomFichier);
 
     // Méthode qui nous permet de classer les sensors 
-    vector<pair<Sensor, int>> rankSensors(Sensor *sens, Utilisateur * user, Date date, int nbJours);
+    vector<pair<string, int>> rankSensors(string sensorId, Date date, int nbJours);
 
     // Méthode qui nous permet de calculer l'indice ATMO (en fonction d'une zone) 
-    int calculerIndiceAtmo(Coordonnees coord, int rayon, Utilisateur * user, Date date, int nbJour );
+    int calculerIndiceAtmo(Coordonnees coord, double rayon, Date date, int nbJour );
 
     // Méthode qui nous permet de calculer l'indice ATMO (par Sensor)
-    int calculerIndiceAtmo(Sensor sensor, Date date, int nbJour );
+    int calculerIndiceAtmo(string sensorID, Date date, int nbJour );
 
     //getter de sensors
     vector<Sensor> getSensors();

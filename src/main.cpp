@@ -8,31 +8,15 @@ using namespace std;
 int main()
 {
     Data data;
+    Date date(10,1,2021);
 
-    /*
-    data.initSensors("./dataset/sensors.csv");
-    cout << data.getSensors().at(0).getId() << endl;
-    */
+    Coordonnees coord(0.0,0.0);
+    data.initSensors("fic");
+    data.initMeasurements("fic");
 
-   Date * date = new Date(20,1,2021);
-
-   //Date * date2;
-   //*date2 = *date;
-
-   *date += 60;
-
-   /*
-   Date * date3 = new Date(25,1,2020);
-
-   if(*(date3) >= (*date2) && (*date3) <= (*date))
-    cout << "Super" << endl;
-    */
-   cout << (*date) << endl;
-
-   
-
-
-    
-
+    //cout << data.calculerIndiceAtmo(coord, 0.5, date, 10) << endl;
+    cout << data.rankSensors("sensor0", date, 10).at(0).first << endl;
+    cout << data.rankSensors("sensor0", date, 10).at(1).first << endl;
+    cout << data.rankSensors("sensor0", date, 10).at(2).first << endl;
     return 0;
 }
