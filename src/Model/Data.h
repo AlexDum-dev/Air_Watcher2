@@ -57,8 +57,6 @@ public:
     //getter de Measurement
     vector<Measurement> getMeasurements();
 
-//------------------------------------------------- Surcharge d'opérateurs
-    Data & operator = ( const Data & unData );
 
 //-------------------------------------------- Constructeurs - destructeur
 

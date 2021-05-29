@@ -3,7 +3,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-
+#include <algorithm>
 //------------------------------------------------------ Include personnel
 #include "Data.h"
 #include <vector>
@@ -15,21 +15,26 @@ using namespace std;
 #include "Utilisateur.h"
 #include "Provider.h"
 
-//----------------------------------------------------------------- PUBLIC
-
-//----------------------------------------------------- Méthodes publiques
-
-// type Xxx::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
 //Méthode qui nous permet de trier par le deuxième élément d'une pair
 bool sortbysec(const pair<Sensor,int> &a, const pair<Sensor,int> &b)
 {
     return (a.second < b.second);
 }
+
+//Constructeur
+Data::Data ( )
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <Data>" << endl;
+#endif
+}
+
+//Destructeur
+Data::~Data()
+{
+    
+}
+
 
 //getter du vector de sensors
 vector<Sensor> Data::getSensors()
@@ -234,8 +239,9 @@ int Data:: calculerIndiceAtmo(Coordonnees coord, int rayon, Data data, Date date
     return ( (double) sommeIndice/compteur);
 
 }
+*/
 
-int Data:: calculerIndiceAtmo(Sensor sensor, Data data, Date date, int nbJour )
+int Data::calculerIndiceAtmo(Sensor sensor, Date date, int nbJour )
 {
     int result=0;
     vector<Measurement> sensorMeas;
@@ -246,16 +252,15 @@ int Data:: calculerIndiceAtmo(Sensor sensor, Data data, Date date, int nbJour )
     double moyPM10=0;
      
 
-    for(auto i = data.getMeasurements().begin(); i!= data.getMeasurements().end(); ++i){
+    for(auto i = measurements.begin(); i!= measurements.end(); ++i){
         Date dtmp = date;
         dtmp += nbJour;
         if((*i).getSensorId() == sensor.getId() && (*i).getDate() > date && (*i).getDate()<=dtmp ){
-            
             sensorMeas.push_back(*i);
         }
     }
 
-    for(auto i = data.getMeasurements().begin(); i!= data.getMeasurements().end(); ++i){
+    for(auto i = measurements.begin(); i!= measurements.end(); ++i){
         if(tmp%4==0){
             moyO3+=(*i).getValue();
         } else if(tmp%4==1){
@@ -374,29 +379,3 @@ int Data:: calculerIndiceAtmo(Sensor sensor, Data data, Date date, int nbJour )
         return result;
 
 }
-*/
-
-
-//------------------------------------------------- Surcharge d'opérateurs
-Data & Data::operator = ( const Data & Data )
-{
-}
-
-
-//-------------------------------------------- Constructeurs - destructeur
-
-//Constructeur
-Data::Data ( )
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <Data>" << endl;
-#endif
-}
-
-//Destructeur
-Data::~Data()
-{
-    
-}
-
-
