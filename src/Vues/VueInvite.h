@@ -48,7 +48,7 @@ public:
         VueInvite();
     
         //Destructeur
-        ~VueInvite();
+        virtual ~VueInvite();
 };
 
 #endif

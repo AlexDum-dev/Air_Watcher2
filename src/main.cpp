@@ -1,6 +1,10 @@
 #include <iostream>
 #include "./Model/Data.h"
-#include "./Model/Date.h"
+#include "./Vues/Vue.h"
+#include "./Vues/VueIndPriv.h"
+#include "./Vues/VueInvite.h"
+#include "./Vues/VueProvider.h"
+#include "./Vues/VueAgenceGouv.h"
 
 
 using namespace std;
@@ -8,25 +12,48 @@ using namespace std;
 int main()
 {
     Data data;
-    Date date(10,1,2021);
+    //Lecture de la bdd 
+    data.initMeasurements("./dataset/measurements.csv");
+    data.initSensors("./dataset/sensors.csv");
 
-    //data.initSensors("./dataset/sensors.csv");
-    //data.initCleaners("./dataset/cleaners.csv");
-    //data.initMeasurements("./dataset/measurements.csv");
+    ControllerUser controller(data);
 
-    /*
-    for(unsigned int i =0; i<data.getCleaners().size(); i++){
-        cout << "Cleaner :" <<data.getCleaners().at(i).getId()<<endl;
-        cout << "DateDebut :" <<data.getCleaners().at(i).getDateDebut()<<endl;
-        cout << "Latitude :" <<data.getCleaners().at(i).getCoordonnees().GetLatitude()<<endl;
-        cout << "Longitude :" <<data.getCleaners().at(i).getCoordonnees().GetLongitude()<<endl;
-        cout << "DateFin :" <<data.getCleaners().at(i).getDateFin()<<endl;
+    Vue vueDepart;
 
-    }*/
-
-
-
-
-
+    Vue * vueActuelle;
+    char choixMenuDepart;
+    do{
+        choixMenuDepart = vueDepart.MenuDepart(); 
+        switch (choixMenuDepart)
+        {
+        case '1':
+            vueActuelle = new VueAgenceGouv(); 
+            vueActuelle->setController(controller);
+            vueActuelle->afficheMenu();
+            break;
+        case '2':
+            vueActuelle = new VueIndPriv(); 
+            vueActuelle->setController(controller);
+            vueActuelle->afficheMenu();
+            break;
+        case '3':
+            vueActuelle = new VueProvider();
+            vueActuelle->setController(controller);
+            vueActuelle->afficheMenu(); 
+            break;
+        case '4':
+            vueActuelle = new VueInvite();
+            vueActuelle->setController(controller);
+            vueActuelle->afficheMenu(); 
+            break;
+        case 'q':
+            if(vueActuelle != nullptr)
+                delete vueActuelle;
+            break;
+        default:
+            break;
+        }
+    } while (choixMenuDepart != 'q');
+    
     return 0;
 }

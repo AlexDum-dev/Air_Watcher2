@@ -3,6 +3,9 @@
 //-------------------------------------------------------- Include personnel
 #include "VueAgenceGouv.h"
 
+#include <chrono>
+using namespace std;
+
 //Constructeur
 VueAgenceGouv:: VueAgenceGouv ()
 {
@@ -56,33 +59,63 @@ void VueAgenceGouv::afficheCheckIndPriv()
 {
     cout<<"Fonctionnalité non disponible pour le moment"<<endl;
 }
-/*
+
 //Méthode qui affiche les données relatives à l'indice ATMO par zone
-void VueAgenceGouv::afficheCalculerIndiceAtmo(Coordonnees coord, int rayon, Date date, int nbJours)
+void VueAgenceGouv::afficheCalculerIndiceAtmo(Coordonnees coord, double rayon, Date date, int nbJours)
 {
-    int indiceAtmo =controller.actionMenuCalculerIndiceAtmo(coord, rayon, date, nbJours);
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
+
+    int indiceAtmo = controller.actionMenuCalculerIndiceAtmo(coord, rayon, date, nbJours);
+
+    end = std::chrono::system_clock::now();
+    int elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(end-start).count();
+    int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count();
+
     cout<<"La moyenne de l'indice ATMO dans la zone selectionnée est la suivante :"<< indiceAtmo<<endl;
+
+    cout << "Réponse donnée en : "<< elapsed_seconds << "," << elapsed_milliseconds << "s"<< endl;
 }
 
 //Méthode qui affiche les données relatives à l'indice ATMO par sensor
 void VueAgenceGouv::afficheCalculerIndiceAtmo(string sensorID, Date date, int nbJours)
 {
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
+
     int indiceAtmo =controller.actionMenuCalculerIndiceAtmo(sensorID, date, nbJours);
+
+    end = std::chrono::system_clock::now();
+    int elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(end-start).count();
+    int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count();
+
     cout<<"La valeur de l'indice ATMO du sensor selectionné est la suivante :"<< indiceAtmo<<endl;
+
+    cout << "Réponse donnée en : "<< elapsed_seconds << "," << elapsed_milliseconds << "s"<< endl;
+
 }
 
 //Méthode qui affiche les données relatives au classement des sensors en terme de similitude à un autre sensor
 void VueAgenceGouv::afficheRankSensors(string SensorID, Date date, int nbJours)
 {
-    vector<pair<Sensor,int>> rankSensor=controller.actionMenuRankSensors(SensorID, date,nbJours);
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
+    
+    vector<pair<string,int>> rankSensor=controller.actionMenuRankSensors(SensorID, date,nbJours);
+
+    end = std::chrono::system_clock::now();
+    int elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(end-start).count();
+    int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count();
+
     int cmp=1;
-
-    for(pair<Sensor, int> ps:rankSensor){
-
-        cout<<"Rank "<<cmp<<" :"<<ps.first.getId()<<endl;
+    for(pair<string, int> ps:rankSensor){
+        cout<<"Rank "<<cmp<<" :"<<ps.first<<endl;
+        cmp++;
     }
+    
+
+    cout << "Réponse donnée en : "<< elapsed_seconds << "," << elapsed_milliseconds << "s"<< endl;
 }
-*/
 
 //Méthode pour le choix d'une option dans un menu
 void VueAgenceGouv::choixMenu(char choix){
@@ -124,15 +157,15 @@ void VueAgenceGouv::choixMenu(char choix){
         {
             cout<<"*******************************************************************************************************************"<< endl;
             float longitude,latitude;
-            int rayon;
-            cout<<"entrez la longitude"<<endl;
-            cin>>longitude;
-
+            double rayon;
+           
             cout<<"entrez la latitude"<<endl;
             cin>>latitude;
 
+            cout<<"entrez la longitude"<<endl;
+            cin>>longitude;
+
             Coordonnees * coord = new Coordonnees(latitude, longitude);
-            //Coordonnees coord = new Coordonnees(latitude,longitude);
 
             cout<<"entrez le rayon"<<endl;
             cin>>rayon;
@@ -149,7 +182,7 @@ void VueAgenceGouv::choixMenu(char choix){
             int nbJour;
             cin>> nbJour;
 
-            //afficheCalculerIndiceAtmo(*coord,rayon,*date,nbJour);
+            afficheCalculerIndiceAtmo(*coord,rayon,*date,nbJour);
             cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
@@ -171,7 +204,7 @@ void VueAgenceGouv::choixMenu(char choix){
             int nbJour;
             cin>> nbJour;
 
-            //afficheCalculerIndiceAtmo(sensorID,*date,nbJour);
+            afficheCalculerIndiceAtmo(sensorID,*date,nbJour);
             cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
@@ -190,12 +223,11 @@ void VueAgenceGouv::choixMenu(char choix){
             cin>>mois;
             cin>>annee;
             Date * date = new Date(jour, mois,annee);
-
             cout<<"entrez le nombre de jours sur lesquels vous voulez calculer ce classement"<<endl;
             int nbJour;
             cin>> nbJour;
 
-            //afficheRankSensors(sensorID,*date,nbJour);
+            afficheRankSensors(sensorID,*date,nbJour);
             cout<<"*******************************************************************************************************************"<< endl;
             break; 
         }
@@ -258,7 +290,8 @@ void VueAgenceGouv::afficheMenu(){
     cout<< "l- Quitter la vue Agence Gouvernementale"<<endl;
 
     cin >> choix;
-    choixMenu(choix);
+    
+    //choixMenu(choix);
     }while(choix!='l');
     
 

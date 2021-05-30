@@ -45,7 +45,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Provider & operator = ( const Provider & unProvider );
+    //Provider & operator = ( const Provider & unProvider );
     
 
 //-------------------------------------------- Constructeurs - destructeur

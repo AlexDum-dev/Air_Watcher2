@@ -91,8 +91,8 @@ void VueIndPriv::choixMenu(char choix)
         afficheInstallSensor();
         cout<<"*******************************************************************************************************************"<< endl;
         break;
-    
-    
+    case 'f':
+        break;
     }
 }
 

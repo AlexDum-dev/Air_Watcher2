@@ -77,7 +77,6 @@ bool Data::initSensors(string nomFichier)
         
         Coordonnees coord(stof(lat),stof(longi));
         Sensor unSensor(id,coord);
-        cout << unSensor.getId() << endl;
         sensors.push_back(unSensor);
         file.get();
     }
@@ -251,11 +250,10 @@ bool Data::initAttributes(string nomFichier)
 vector <pair<string, int>> Data::rankSensors(string sensorId,Date timestamp, int nbJours)
 {
     vector <pair <string, int>> ranking;
-
+    int indiceAtmoReference = calculerIndiceAtmo(sensorId, timestamp, nbJours);
     for (auto i = sensors.begin(); i!= sensors.end(); ++i){
-        auto p = make_pair((*i).getId(), abs(calculerIndiceAtmo(sensorId, timestamp, nbJours)-calculerIndiceAtmo((*i).getId(), timestamp, nbJours)));
+        auto p = make_pair((*i).getId(), abs(indiceAtmoReference-calculerIndiceAtmo((*i).getId(), timestamp, nbJours)));
         ranking.push_back(p);
-
     }
     sort(ranking.begin(), ranking.end(), sortbysec);
 

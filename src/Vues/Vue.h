@@ -20,9 +20,11 @@ class Vue
 
 
         //--------------------------------------------------- Méthode publiques
+
+        char MenuDepart();
         
         //Méthode pour affihcer le menu
-        virtual void afficheMenu() =0;
+        virtual void afficheMenu(){};
 
         //Méthode pour le choix d'un option d'un menu
         virtual void ChoixMenu(char userEntry) {};
@@ -39,13 +41,15 @@ class Vue
         //Méthode qui affiche les données par zone
         virtual void afficheConsultDataZone() {};
 
+        virtual void setController(ControllerUser controller);
+
         //-------------------------------------------- Constructeurs - destructeur
         
         //Constructeur
-        Vue(){}
+        Vue();
 
         //Destructeur
-        virtual ~Vue(){}
+        virtual ~Vue();
 
 
     //-------------------------------------------------------------- PROTECTED

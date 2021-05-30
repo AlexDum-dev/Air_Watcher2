@@ -52,7 +52,7 @@ public:
         VueIndPriv();
         
         //Destructeur
-        ~VueIndPriv();
+        virtual ~VueIndPriv();
 };
 
 #endif

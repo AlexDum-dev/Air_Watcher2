@@ -1,6 +1,5 @@
-
-#ifndef AGENCEGOUV_H
-#define AGENCEGOUV_H
+#ifndef VUEAGENCEGOUV_H
+#define VUEAGENCEGOUV_H
 using namespace std;
 
 
@@ -39,16 +38,16 @@ public:
     //Méthode qui affiche les données relatives à l'etat d'un ind privé
     void afficheCheckIndPriv();
 
-    /*
+    
     //Méthode qui affiche les données relatives à l'indice ATMO par zone
-    void afficheCalculerIndiceAtmo(Coordonnees coord, int rayon, Date date, int nbJours);
+    void afficheCalculerIndiceAtmo(Coordonnees coord, double rayon, Date date, int nbJours);
 
     //Méthode qui affiche les données relatives à l'indice ATMO par sensor
     void afficheCalculerIndiceAtmo(string sensorID, Date date, int nbJours);
 
     //Méthode qui affiche les données relatives au classement des sensors
     void afficheRankSensors(string SensorID, Date date, int nbJours);
-    */
+    
 
     //Méthode qui affiche les données relatives à l'inscription
     void afficheInscription();
@@ -70,11 +69,11 @@ public:
 
     //-------------------------------------------- Constructeurs - destructeur
     
-        //Constructeur
-        VueAgenceGouv();
+    //Constructeur
+    VueAgenceGouv();
 
-        //Destructeur
-        ~VueAgenceGouv();
+    //Destructeur
+    virtual ~VueAgenceGouv();    
 };
 
 #endif

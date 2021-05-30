@@ -17,13 +17,13 @@ class ControllerUser
 
         ControllerUser();
         
-        ControllerUser(Utilisateur * unUser);
+        ControllerUser(const Data & data);
 
         //Controller pour la fonctionnalite Rank Sensors de l'Agence Gouvernementale
-        vector<pair<Sensor, int>> actionMenuRankSensors(string sensorID, Date date, int nbJours);
+        vector<pair<string, int>> actionMenuRankSensors(string sensorID, Date date, int nbJours);
 
         //Controller pour la fonctionnalite de calcul de l'indice ATMO (en fct des coordonnées) de l'Agence Gouvernementale
-        int actionMenuCalculerIndiceAtmo(Coordonnees coord, int rayon, Date date, int nbJours); 
+        int actionMenuCalculerIndiceAtmo(Coordonnees coord, double rayon, Date date, int nbJours); 
 
         //Controller pour la fonctionnalite de calcul de l'indice ATMO (par sensor) de l'Agence Gouvernementale
         int actionMenuCalculerIndiceAtmo(string sensorID, Date date, int nbJours);
@@ -33,7 +33,6 @@ class ControllerUser
     protected : 
 
         Data data;
-        Utilisateur * user;
 };
 
 #endif

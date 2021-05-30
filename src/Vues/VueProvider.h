@@ -50,7 +50,7 @@ public:
         VueProvider();
         
         //Destructeur
-        ~VueProvider();
+        virtual ~VueProvider();
 };
 
 #endif
