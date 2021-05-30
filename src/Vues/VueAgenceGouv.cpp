@@ -291,7 +291,7 @@ void VueAgenceGouv::afficheMenu(){
 
     cin >> choix;
     
-    //choixMenu(choix);
+    choixMenu(choix);
     }while(choix!='l');
     
 
