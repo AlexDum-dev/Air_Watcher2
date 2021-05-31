@@ -101,9 +101,9 @@ void Date::helpIncrement()
 
 ostream &operator<<(ostream &output, const Date &d)
 {
-    static char *monthName[13] = {"", "Janvier", "Fevrier",
-                                  "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout",
-                                  "Septembre", "Octobre", "Novembre", "Decembre"};
+    static char *monthName[13] = {(char*)"", (char*)"Janvier", (char*)"Fevrier",
+                                  (char*)"Mars", (char*)"Avril", (char*)"Mai", (char*)"Juin", (char*)"Juillet", (char*)"Aout",
+                                  (char*)"Septembre", (char*)"Octobre", (char*)"Novembre", (char*)"Decembre"};
     output << monthName[d.mois] << ' ' << d.jour << ", " << d.annee;
     return output;
 } 
