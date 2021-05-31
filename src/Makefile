@@ -2,28 +2,24 @@ CXX=g++
 CXXFLAGS=-ansi -pedantic -Wall -std=c++11
 LDFLAGS=
 EXEC=main
-SRC=$(wildcard *.cpp)
-SRCS= $(wildcard Controller/*.cpp) $(wildcard Vues/*.cpp) $(wildcard Model/*.cpp) $(wildcard *.cpp)
-OBJS=$(SRCS:.cpp=.o)
-SUBDIRS = Controller Model Vues
+EXECT=mainTest
+SRC=$(wildcard *.o)
+SRCS= $(wildcard Controller/*.cpp) $(wildcard Vues/*.cpp) $(wildcard Model/*.cpp) main.cpp 
+SRCS2= $(wildcard Controller/*.cpp) $(wildcard Vues/*.cpp) $(wildcard Model/*.cpp) mainTest.cpp
 
 all : $(EXEC)
 	
+main : $(SRCS)
+	$(CXX) -O3 -o $@ ${SRCS} $(LDFLAGS)
 
-main : $(OBJS)
-	for i in $(SUBDIRS); do (cd $$i; $(MAKE) all); done
-	$(CXX) -o $@ ${OBJS} $(LDFLAGS)
-
-%.o : %.cpp
-	$(CXX) -c $< $(CXXFLAGS)
-	
-debug : $(OBJS)
-	for i in $(SUBDIRS); do (cd $$i; $(MAKE) all); done
+mainTest: $(SRCS2)
+	$(CXX) -o $@ ${SRCS2} $(LDFLAGS)
+ 
+debug : $(SRCS)
 	$(CXX) -g3 -o $@ $^ $(LDFLAGS)
 
 clean : 
-	for i in $(SUBDIRS); do (cd $$i; $(MAKE) clean); done
 	rm -f *.o
 
 mrproper : clean
-	rm -f main debug
+	rm -f main debug mainTest

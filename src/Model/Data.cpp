@@ -84,6 +84,17 @@ bool Data::initSensors(string nomFichier)
     return res;
 }
 
+void Data::addSensor(Sensor & s)
+{
+    sensors.push_back(s);
+}
+
+void Data::addMeasurements(Measurement & m)
+{
+    measurements.push_back(m);
+}
+
+
 //Initialiser les Cleaners(à partir d'un fichier)
 bool Data::initCleaners(string nomFichier)
 {
@@ -278,6 +289,11 @@ int Data::calculerIndiceAtmo(Coordonnees coord, double rayon, Date date, int nbJ
             sommeIndice += calculerIndiceAtmo(s.getId(), date, nbJour);
             compteur++;
         }
+    }
+
+    if(compteur == 0)
+    {
+        return -1;
     }
 
     int moyIndice = (int) floor(1+(sommeIndice/compteur));

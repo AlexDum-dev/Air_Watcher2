@@ -60,6 +60,10 @@ public:
     //getter des cleaners
     vector <Cleaner> getCleaners();
 
+    void addSensor(Sensor & s);
+
+    void addMeasurements(Measurement & m);
+
 
 //-------------------------------------------- Constructeurs - destructeur
 
