@@ -194,7 +194,7 @@ bool Data::initProviders(string nomFichier)
 //initialiser un utilisateur (à partir d'un fichier)
 bool Data::initUsers(string nomFichier)
 {
-    bool res;
+    bool res =true;
     ifstream file (nomFichier);
     while(!file.eof())
     {
@@ -252,7 +252,7 @@ bool Data::initMeasurements(string nomFichier) // Fonctionne !!
 // initialiser Attributes (à partir d'un fichier)
 bool Data::initAttributes(string nomFichier)
 {
-    bool res;
+    bool res= true;
     return res;
 }
 
@@ -274,7 +274,7 @@ vector <pair<string, int>> Data::rankSensors(string sensorId,Date timestamp, int
 
 int Data::calculerIndiceAtmo(Coordonnees coord, double rayon, Date date, int nbJour )
 {
-    int result=0;
+    
     //Parcourir tous les sensors
     //Calculer leur distance par rapport coord et si < rayon alors on les garde
     //pour chaque capteur on appelle calculerIndiceAtmo() et on fait la moyenne
