@@ -72,7 +72,12 @@ void VueAgenceGouv::afficheCalculerIndiceAtmo(Coordonnees coord, double rayon, D
     int elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(end-start).count();
     int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count();
 
-    cout<<"La moyenne de l'indice ATMO dans la zone selectionnée est la suivante :"<< indiceAtmo<<endl;
+    if(indiceAtmo != -1)
+    {
+        cout<<"La valeur de l'indice ATMO du sensor selectionné est la suivante :"<< indiceAtmo<<endl;
+    } else {
+        cout << "Il n'y a aucun capteur dans cette zone" << endl;
+    }
 
     cout << "Réponse donnée en : "<< elapsed_seconds << "," << elapsed_milliseconds << "s"<< endl;
 }
@@ -89,7 +94,13 @@ void VueAgenceGouv::afficheCalculerIndiceAtmo(string sensorID, Date date, int nb
     int elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(end-start).count();
     int elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count();
 
-    cout<<"La valeur de l'indice ATMO du sensor selectionné est la suivante :"<< indiceAtmo<<endl;
+    if(indiceAtmo != -1)
+    {
+        cout<<"La valeur de l'indice ATMO du sensor selectionné est la suivante :"<< indiceAtmo<<endl;
+    } else {
+        cout << "Il n'y a aucun capteur qui correspond à l'id rentré en paramètre" << endl;
+    }
+    
 
     cout << "Réponse donnée en : "<< elapsed_seconds << "," << elapsed_milliseconds << "s"<< endl;
 
