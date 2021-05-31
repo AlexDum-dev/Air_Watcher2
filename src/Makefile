@@ -10,7 +10,7 @@ SRCS2= $(wildcard Controller/*.cpp) $(wildcard Vues/*.cpp) $(wildcard Model/*.cp
 all : $(EXEC)
 	
 main : $(SRCS)
-	$(CXX) -O3 -o $@ ${SRCS} $(LDFLAGS)
+	$(CXX) -O3 -o $@ ${SRCS} $(CXXFLAGS)
 
 mainTest: $(SRCS2)
 	$(CXX) -o $@ ${SRCS2} $(LDFLAGS)

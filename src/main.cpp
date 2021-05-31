@@ -20,7 +20,7 @@ int main()
 
     Vue vueDepart;
 
-    Vue * vueActuelle;
+    Vue * vueActuelle = nullptr;
     char choixMenuDepart;
     do{
         choixMenuDepart = vueDepart.MenuDepart(); 
