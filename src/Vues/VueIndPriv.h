@@ -2,8 +2,6 @@
 #define VUEINDPRIV_H
 using namespace std;
 
-
-//--------------------------------------------------- Include utilisés
 #include "Vue.h"
 #include "../Model/Sensor.h"
 #include "../Model/Coordonnees.h"
@@ -19,8 +17,6 @@ using namespace std;
 
 class VueIndPriv : public Vue
 {
-
-//----------------------------------------------------------------- PUBLIC
 
 public:
 
@@ -47,7 +43,6 @@ public:
         //Méthode pour le choix d'une option dans un menu
         void choixMenu(char choix);
 
-    //-------------------------------------------- Constructeurs - destructeur
         //Constructeur
         VueIndPriv();
         

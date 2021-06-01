@@ -2,11 +2,8 @@
 #include <string>
 using namespace std;
 
-//------------------------------------------------------ Include personnel
 #include "Measurement.h"
 #include "Date.h"
-
-//-------------------------------------------- Constructeurs - destructeur
 
 //Constructeur
 Measurement:: Measurement(string unsensorId, Date untimestamp, double unvalue, string unattributeId)

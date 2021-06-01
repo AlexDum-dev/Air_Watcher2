@@ -1,7 +1,6 @@
 #if ! defined ( UTILISATEUR_H )
 #define UTILISATEUR_H
 
-//--------------------------------------------------- Interfaces utilisées
 #include <string>
 #include <vector>
 using namespace std;
@@ -17,12 +16,11 @@ using namespace std;
 
 class Utilisateur
 {
-//----------------------------------------------------------------- PUBLIC
 
 public:
 
 
-//-------------------------------------------- Méthodes publiques
+//-------------------------------------------- Méthodes pas implémentées
 
     //Méthode d'authetification
     //virtual Utilisateur * Authentificate(string id, string mdp){}
@@ -36,7 +34,6 @@ public:
     //Méthode de déconnexion
     //virtual void deconnexion()
 
-//-------------------------------------------- Constructeurs - destructeur
 
     //Utilisateur (unsigned int id, string mdp, string  admail );
     
@@ -46,12 +43,7 @@ public:
     //Destructeur
     virtual ~Utilisateur ( ){}
 
-
-//-------------------------------------------------------------- PROTECTED
-
 protected:
-
-//----------------------------------------------------- Attributs protégés
 
     unsigned int id;
     string mdp;

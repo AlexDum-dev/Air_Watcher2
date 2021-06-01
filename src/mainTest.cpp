@@ -12,6 +12,7 @@ void testCalculIndiceAtmoOneSensor(Data data);
 void testCalculIndiceAtmoInAZone(Data data);
 void testRankSensor(Data data);
 void testLectureFichier();
+void TestDate();
 
 int main()
 {
@@ -56,6 +57,7 @@ int main()
     testCalculIndiceAtmoInAZone(data);
     testRankSensor(data);
     testLectureFichier();
+    TestDate();
 
     cout << "Tous les tests sont passes." << endl;
 
@@ -151,4 +153,34 @@ void testLectureFichier()
     assert(data.getMeasurements().at(1).getValue() == 63.04);
 
     cout << "Test 4 : passed" << endl;
+}
+
+//Test de Date
+void TestDate(){
+    cout << "*********Enter in test Date : *********" << endl;
+    Date date1;
+    date1.setDate(1,2,2021);
+    Date date2;
+    date2.setDate(2,2,2021);
+    Date date3;
+    date3.setDate(3,2,2021);
+    Date date4;
+    date4.setDate(29,2,2020);
+
+    date1++;
+    //Test operator ++ et ==
+    assert(date1 == date2 );
+    cout << "Test 1 : passed" << endl;
+    //Test operator >=
+    assert(date3 >= date2 );
+    cout << "Test 2 : passed" << endl;
+    //Test operator <=
+    assert(date2 <= date3 );
+    cout << "Test 3 : passed" << endl;
+    //Test année bissextile
+    date4++;
+    Date d(1,3,2020);
+    assert(d==date4);
+    cout << "Test 4 : passed" << endl;
+
 }

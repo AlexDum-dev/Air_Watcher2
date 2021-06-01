@@ -1,8 +1,6 @@
 #if ! defined ( AGENCEGOUV_H )
 #define AGENCEGOUV_H
 
-
-//--------------------------------------------------- Include utilisés
 #include "Utilisateur.h"
 #include "Sensor.h"
 #include "Coordonnees.h"
@@ -19,10 +17,8 @@
 
 class AgenceGouv : public Utilisateur
 {
-//----------------------------------------------------------------- PUBLIC
 
 public:
-//-------------------------------------------- Constructeurs - destructeur
     
     AgenceGouv (unsigned int id, string adresseMail, string mdp); //Constructeur
 	

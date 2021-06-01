@@ -1,10 +1,7 @@
-//---------------------------------------------------------------- INCLUDE
-
-//-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
 #include <algorithm>
-//------------------------------------------------------ Include personnel
+
 #include "Data.h"
 #include <vector>
 #include <fstream>
@@ -237,8 +234,6 @@ bool Data::initMeasurements(string nomFichier) // Fonctionne !!
         
         Date date(stoi(mois),stoi(jour),stoi(annee));
 
-        //cout << "annee:" << annee << " mois:" << mois << " jour:" << jour << endl;
-
         Measurement unMeasurement(sensorId,date,stod(value),attributeId);
 
         measurements.push_back(unMeasurement);
@@ -259,6 +254,11 @@ bool Data::initAttributes(string nomFichier)
 
 // Méthode qui nous permet de classer les sensors 
 vector <pair<string, int>> Data::rankSensors(string sensorId,Date timestamp, int nbJours)
+/*Algorithme: 
+    * :parcourir tout les capteur et créer un pair de l'id avec une valeur int : différence entre indice atmo de référence et indice atmo
+    *   du capteur actuel.
+    * trier la liste selon cette valeur
+*/
 {
     vector <pair <string, int>> ranking;
     int indiceAtmoReference = calculerIndiceAtmo(sensorId, timestamp, nbJours);
@@ -273,11 +273,12 @@ vector <pair<string, int>> Data::rankSensors(string sensorId,Date timestamp, int
 
 
 int Data::calculerIndiceAtmo(Coordonnees coord, double rayon, Date date, int nbJour )
+/* Algorithme : 
+    *Parcourir tous les sensors et ajouter dans une liste ceux qui sont dans la zone définie par les coordonnées et un rayon
+    * pour chaque sensor de cette liste calculer la moyenne de l'indice atmo
+    * retourn -1 si pas de capteur dans la zone
+*/ 
 {
-    
-    //Parcourir tous les sensors
-    //Calculer leur distance par rapport coord et si < rayon alors on les garde
-    //pour chaque capteur on appelle calculerIndiceAtmo() et on fait la moyenne
     vector<Sensor> listSensors = sensors;
     int compteur = 0;
     int sommeIndice = 0;
@@ -302,6 +303,13 @@ int Data::calculerIndiceAtmo(Coordonnees coord, double rayon, Date date, int nbJ
 }
 
 int Data::calculerIndiceAtmo(string sensorID, Date date, int nbJour )
+/* Algorithme : 
+    * parcourir toutes les mesures des sensors
+    * si l'id correspond à celui passé en paramètre et que la période définie par une date et un nombre de cours correspond
+    * alors on ajoute cette mesure à la liste des mesures
+    * calculer la moyenne des valeurs puis déterminer l'indice atmo : voir wikipedia/indiceAtmo
+    * renvoie -1 si pas de mesures connues
+*/ 
 {
     int result=0;
     vector<Measurement> sensorMeas;

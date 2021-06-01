@@ -1,14 +1,7 @@
-//---------------------------------------------------------------- INCLUDE
-
-//-------------------------------------------------------- Include personnel
 #include "Date.h"
-
-//------------------------------------------------------------- Constantes
 
 //tableau de jours par mois
 const int Date::jourParMois[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-//-------------------------------------------- Constructeurs - destructeur
 
 // Constructor
 Date::Date(int j, int m, int y)

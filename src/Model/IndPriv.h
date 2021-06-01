@@ -1,7 +1,6 @@
 #if !defined(INDPRIV_H)
 #define INDPRIV_H
 
-//--------------------------------------------------- Interfaces utilisées
 //#include "Sensor.h"
 #include "Utilisateur.h"
 #include "Sensor.h"
@@ -15,15 +14,6 @@ class IndPriv : public Utilisateur
 	//----------------------------------------------------------------- PUBLIC
 
 public:
-	//----------------------------------------------------- Méthodes publiques
-
-	/*void installSensor(Coordonnees coord);
-	// Mode d'emploi : 
-	//
-	// Contrat : 
-	//*/
-
-	//-------------------------------------------- Constructeurs - destructeur
 
 	//Constructeur
 	IndPriv(unsigned int id1, string mdp, string admail, string adresse, vector<Sensor> sensors); 

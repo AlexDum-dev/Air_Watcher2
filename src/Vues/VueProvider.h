@@ -2,8 +2,6 @@
 #define VUEPROVIDER_H
 using namespace std;
 
-
-//--------------------------------------------------- Include utilisés
 #include "Vue.h"
 #include "../Model/Sensor.h"
 #include "../Model/Coordonnees.h"
@@ -21,11 +19,7 @@ using namespace std;
 class VueProvider : public Vue
 {
 
-//----------------------------------------------------------------- PUBLIC
-
 public:
-
-    //-------------------------------------------- Méthode publique
         
         //Méthode qui affiche les données relatives à l'inscription
         void afficheInscription();

@@ -1,7 +1,6 @@
 #if ! defined ( SENSOR_H )
 #define SENSOR_H
 
-//--------------------------------------------------- Interfaces utilisées
 #include <string>
 #include <vector>
 using namespace std;
@@ -17,11 +16,8 @@ using namespace std;
 
 class Sensor
 {
-//----------------------------------------------------------------- PUBLIC
 
 public:
-
-//----------------------------------------------------- Méthodes publiques
 
     //getter de coordonnees
     Coordonnees getCoordonnees();
@@ -29,8 +25,6 @@ public:
     //getter d'Id
     string getId();
 
-
-//-------------------------------------------- Constructeurs - destructeur
 
     //Constructeur
     Sensor(string unId, Coordonnees uneCoord);

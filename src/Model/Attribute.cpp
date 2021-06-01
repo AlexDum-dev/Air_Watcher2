@@ -1,18 +1,9 @@
-//---------------------------------------------------------------- INCLUDE
-
-//-------------------------------------------------------- Include système
 #include <iostream>
 #include <cstring>
 using namespace std;
-//------------------------------------------------------ Include personnel
 #include "Attribute.h"
 
-//----------------------------------------------------------------- PUBLIC
 
-
-//-------------------------------------------- Constructeurs - destructeur
-
-//Constructeur
 Attribute::Attribute (string unId, string unUnit, string unDescription)
 {
     this->id = unId;

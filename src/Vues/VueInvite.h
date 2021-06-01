@@ -2,7 +2,6 @@
 #define VUEINVITE_H
 using namespace std;
 
-//--------------------------------------------------- Include utilisés
 #include "Vue.h"
 #include "../Model/Sensor.h"
 #include "../Model/Coordonnees.h"
@@ -18,8 +17,6 @@ using namespace std;
 
 class VueInvite : public Vue
 {
-
-//----------------------------------------------------------------- PUBLIC
 
 public:
 
@@ -43,7 +40,6 @@ public:
         //Méthode pour le choix d'une option dans un menu
         void choixMenu(char choix);
 
-    //-------------------------------------------- Constructeurs - destructeur
         //Constructeur
         VueInvite();
     

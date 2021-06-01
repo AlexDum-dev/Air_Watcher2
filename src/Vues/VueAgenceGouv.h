@@ -2,8 +2,6 @@
 #define VUEAGENCEGOUV_H
 using namespace std;
 
-
-//--------------------------------------------------- Include utilisés
 #include "Vue.h"
 #include "../Model/Sensor.h"
 #include "../Model/Coordonnees.h"
@@ -20,11 +18,8 @@ using namespace std;
 class VueAgenceGouv : public Vue
 {
 
-//----------------------------------------------------------------- PUBLIC
 
 public:
-
-    //-------------------------------------------- Méthode publique
 
     //Méthode qui affiche les zones avec des airs similaires
     void afficheIdentifierAirSim();
@@ -66,8 +61,6 @@ public:
 
     //Méthode pour le choix d'une option dans un menu
     void choixMenu(char choix);
-
-    //-------------------------------------------- Constructeurs - destructeur
     
     //Constructeur
     VueAgenceGouv();

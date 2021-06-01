@@ -1,28 +1,10 @@
-//---------------------------------------------------------------- INCLUDE
-
-//-------------------------------------------------------- Include système
 #include <iostream>
 #include <cstring>
 #include <string>
 using namespace std;
-//------------------------------------------------------ Include personnel
 #include "IndPriv.h"
 
 
-
-//----------------------------------------------------------------- PUBLIC
-
-//----------------------------------------------------- Méthodes publiques
-
-
-/*Méthode InstallSensor
-void IndPriv :: installSensor(Coordonnees coord)
-{
-cout << "Le sensor à installer est.. "<<endl;
-}//------Fin de la Méthode installSensor*/
-
-
-//-------------------------------------------- Constructeurs - destructeur
 //Constructeur
 IndPriv::IndPriv (unsigned int id1, string mdp, string  admail, string adresse, vector <Sensor> sensors)
 {

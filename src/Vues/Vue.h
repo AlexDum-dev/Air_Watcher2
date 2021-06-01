@@ -1,7 +1,6 @@
 #ifndef VUE_H
 #define VUE_H
 
-//--------------------------------------------------- Include utilisé
 #include "../Controller/ControllerUser.h"
 #include "../Model/Utilisateur.h"
 #include "../Model/AgenceGouv.h"
@@ -15,11 +14,7 @@
 
 class Vue 
 {
-    //----------------------------------------------------------------- PUBLIC
     public : 
-
-
-        //--------------------------------------------------- Méthode publiques
 
         char MenuDepart();
         
@@ -51,12 +46,7 @@ class Vue
         //Destructeur
         virtual ~Vue();
 
-
-    //-------------------------------------------------------------- PROTECTED
-
     protected : 
-
-        //----------------------------------------------------- Attributs protégés
         ControllerUser controller;
 
 };

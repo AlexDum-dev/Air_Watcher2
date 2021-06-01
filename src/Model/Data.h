@@ -19,10 +19,8 @@
 
 class Data
 {
-//----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- Méthodes publiques
 
     // initialiser les utilisateurs (à partir d'un fichier)
     bool initUsers(string nomFichier);

@@ -1,16 +1,10 @@
-
-//---------------------------------------------------------------- INCLUDE
-
-//-------------------------------------------------------- Include système
 #include <iostream>
 #include <cstring>
 using namespace std;
-//------------------------------------------------------ Include personnel
+
 #include "Cleaner.h"
 
-//----------------------------------------------------------------- PUBLIC
 
-//-------------------------------------------- Constructeurs - destructeur
 
 //Constructeur vide
 Cleaner::Cleaner()

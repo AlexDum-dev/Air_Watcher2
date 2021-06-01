@@ -1,7 +1,6 @@
 #if ! defined ( CLEANER_H )
 #define CLEANER_H
 
-//--------------------------------------------------- Interfaces utilisées
 #include "Coordonnees.h"
 #include "Date.h"
 //------------------------------------------------------------------------
@@ -12,11 +11,8 @@
 
 class Cleaner
 {
-//----------------------------------------------------------------- PUBLIC
 
 public:
-
-//-------------------------------------------- Constructeurs - destructeur
 
 	//Constructeur
 	Cleaner();
@@ -40,8 +36,6 @@ public:
 
 	
 	
-
-//------------------------------------------------------------------ Protégé
 	
 protected:
 

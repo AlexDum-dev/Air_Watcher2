@@ -1,10 +1,6 @@
-//---------------------------------------------------------------- INCLUDE
-
-//-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
 
-//------------------------------------------------------ Include personnel
 #include <vector>
 #include "Date.h"
 #include "Coordonnees.h"  
@@ -12,10 +8,6 @@ using namespace std;
 #include "Cleaner.h"
 #include "Provider.h"
 
-
-//----------------------------------------------------------------- PUBLIC
-
-//----------------------------------------------------- Méthodes publiques
 
 //setter de cleaners
 void Provider::SetCleaners(vector<Cleaner> c)

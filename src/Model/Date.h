@@ -1,11 +1,6 @@
 #ifndef DATE_H
 #define DATE_H
 
-
-//---------------------------------------------------------------- INCLUDE
-
-//-------------------------------------------------------- Include système
-
 #include <iostream>
 #include <fstream>
 using namespace std;
